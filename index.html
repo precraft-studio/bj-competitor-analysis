@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blackjack App 競品分析 — BJ Analyzer</title>
+  <style>
+    :root {
+      --bg:        #06120a;
+      --surface:   #0d1f12;
+      --surface2:  #132818;
+      --border:    rgba(245,241,218,0.1);
+      --gold:      #E8C547;
+      --green:     #22c55e;
+      --red:       #ef4444;
+      --cyan:      #22d3ee;
+      --ink:       #F5F1DA;
+      --ink-dim:   rgba(245,241,218,0.5);
+      --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 0 0 60px;
+    }
+
+    /* ── Header ── */
+    .page-header {
+      background: linear-gradient(135deg, #0d2b16 0%, #06120a 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 40px 32px 32px;
+      text-align: center;
+    }
+    .page-header h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      color: var(--gold);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .page-header p {
+      color: var(--ink-dim);
+      font-size: 14px;
+    }
+    .badge-row {
+      display: flex; gap: 10px; justify-content: center;
+      flex-wrap: wrap; margin-top: 18px;
+    }
+    .badge {
+      padding: 4px 14px; border-radius: 20px; font-size: 12px;
+      font-weight: 600; font-family: var(--font-mono);
+    }
+    .badge-gold  { background: rgba(232,197,71,0.15); border: 1px solid rgba(232,197,71,0.4); color: var(--gold); }
+    .badge-green { background: rgba(34,197,94,0.12);  border: 1px solid rgba(34,197,94,0.35);  color: var(--green); }
+    .badge-cyan  { background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.35); color: var(--cyan); }
+
+    /* ── Summary Cards ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      max-width: 900px;
+      margin: 32px auto 0;
+      padding: 0 24px;
+    }
+    .summary-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 16px;
+      text-align: center;
+    }
+    .summary-card .num {
+      font-size: 28px; font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--gold);
+    }
+    .summary-card .label {
+      font-size: 11px; color: var(--ink-dim);
+      margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px;
+    }
+
+    /* ── Controls ── */
+    .controls {
+      max-width: 1400px; margin: 28px auto 16px;
+      padding: 0 20px;
+      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    }
+    .filter-btn {
+      padding: 7px 16px; border-radius: 8px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--ink-dim);
+      font-size: 12px; font-weight: 600; cursor: pointer;
+      transition: all 0.15s; font-family: inherit;
+    }
+    .filter-btn:hover { border-color: rgba(232,197,71,0.4); color: var(--ink); }
+    .filter-btn.active {
+      background: rgba(232,197,71,0.12);
+      border-color: rgba(232,197,71,0.5);
+      color: var(--gold);
+    }
+    .controls-label { color: var(--ink-dim); font-size: 12px; margin-right: 4px; }
+
+    /* ── Table Wrapper ── */
+    .table-wrap {
+      max-width: 1400px; margin: 0 auto;
+      padding: 0 16px;
+      overflow-x: auto;
+    }
+    table {
+      width: 100%; border-collapse: collapse;
+      min-width: 900px;
+    }
+    thead tr {
+      background: var(--surface2);
+      border-bottom: 2px solid var(--gold);
+    }
+    thead th {
+      padding: 13px 12px; text-align: left;
+      font-size: 11px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.8px;
+      color: var(--gold); white-space: nowrap;
+    }
+    thead th.center { text-align: center; }
+
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+    tbody tr:hover { background: rgba(245,241,218,0.03); }
+    tbody tr.sim-yes { border-left: 3px solid var(--green); }
+    tbody tr.hidden  { display: none; }
+
+    td {
+      padding: 13px 12px; vertical-align: top;
+      font-size: 13px; color: var(--ink);
+    }
+    td.center { text-align: center; }
+
+    /* ── Cell Styles ── */
+    .app-name {
+      font-weight: 700; font-size: 13px;
+      color: var(--ink); white-space: nowrap;
+    }
+    .platform-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-size: 10px; font-weight: 600; margin: 1px 2px;
+      font-family: var(--font-mono);
+    }
+    .tag-ios    { background: rgba(34,211,238,0.12); color: var(--cyan);  border: 1px solid rgba(34,211,238,0.25); }
+    .tag-android{ background: rgba(34,197,94,0.12);  color: var(--green); border: 1px solid rgba(34,197,94,0.25);  }
+    .tag-pc     { background: rgba(168,85,247,0.12); color: #c084fc;      border: 1px solid rgba(168,85,247,0.25); }
+    .tag-web    { background: rgba(245,158,11,0.12); color: #fbbf24;      border: 1px solid rgba(245,158,11,0.25); }
+
+    .price-tag {
+      font-family: var(--font-mono); font-size: 12px;
+      font-weight: 700; color: var(--gold);
+      white-space: nowrap;
+    }
+    .price-free { color: var(--green); }
+
+    .sim-yes-icon {
+      font-size: 22px; color: var(--green);
+      text-shadow: 0 0 12px rgba(34,197,94,0.5);
+    }
+    .sim-no-icon { font-size: 18px; color: rgba(245,241,218,0.2); }
+
+    .feature-list {
+      list-style: none; padding: 0;
+    }
+    .feature-list li {
+      padding: 2px 0; font-size: 12px; color: rgba(245,241,218,0.8);
+      display: flex; gap: 6px; align-items: flex-start;
+    }
+    .feature-list li::before { content: '•'; color: var(--gold); flex-shrink: 0; }
+
+    .other-list li::before { color: var(--cyan); }
+
+    .link-btn {
+      display: inline-block; padding: 5px 12px;
+      background: rgba(232,197,71,0.08);
+      border: 1px solid rgba(232,197,71,0.3);
+      border-radius: 6px; color: var(--gold);
+      font-size: 11px; font-weight: 600;
+      text-decoration: none; white-space: nowrap;
+      transition: all 0.15s;
+    }
+    .link-btn:hover {
+      background: rgba(232,197,71,0.18);
+      border-color: rgba(232,197,71,0.6);
+    }
+
+    .company-name { color: var(--ink-dim); font-size: 12px; }
+
+    /* ── Advantage Box ── */
+    .advantage-section {
+      max-width: 1400px; margin: 40px auto 0;
+      padding: 0 20px;
+    }
+    .advantage-section h2 {
+      font-size: 16px; font-weight: 700;
+      color: var(--gold); margin-bottom: 16px;
+      padding-bottom: 8px; border-bottom: 1px solid var(--border);
+    }
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .advantage-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 16px;
+    }
+    .advantage-card.highlight {
+      border-color: rgba(34,197,94,0.4);
+      background: rgba(34,197,94,0.04);
+    }
+    .advantage-card h3 {
+      font-size: 13px; font-weight: 700;
+      color: var(--green); margin-bottom: 8px;
+    }
+    .advantage-card p {
+      font-size: 12px; color: var(--ink-dim); line-height: 1.7;
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      text-align: center; padding: 32px 20px 0;
+      color: var(--ink-dim); font-size: 11px;
+    }
+
+    /* ── Scrollbar ── */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(232,197,71,0.3); border-radius: 3px; }
+  </style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="page-header">
+  <h1>♠ Blackjack App 競品分析報告</h1>
+  <p>BJ Analyzer · 全平台競品對照表 · 2025年版</p>
+  <div class="badge-row">
+    <span class="badge badge-cyan">iOS</span>
+    <span class="badge badge-green">Android</span>
+    <span class="badge badge-gold">PC / Steam</span>
+    <span class="badge badge-gold">Web</span>
+  </div>
+</div>
+
+<!-- Summary Cards -->
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="num">22</div>
+    <div class="label">競品總數</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">8</div>
+    <div class="label">有策略模擬</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">$0–$250</div>
+    <div class="label">市場價格範圍</div>
+  </div>
+  <div class="summary-card">
+    <div class="num">0</div>
+    <div class="label">算牌＋模擬＋22語言</div>
+  </div>
+</div>
+
+<!-- Filter Controls -->
+<div class="controls">
+  <span class="controls-label">篩選平台：</span>
+  <button class="filter-btn active" onclick="filterPlatform('all', this)">全部</button>
+  <button class="filter-btn" onclick="filterPlatform('ios', this)">iOS</button>
+  <button class="filter-btn" onclick="filterPlatform('android', this)">Android</button>
+  <button class="filter-btn" onclick="filterPlatform('pc', this)">PC / Steam</button>
+  <button class="filter-btn" onclick="filterPlatform('web', this)">Web</button>
+  <span style="margin-left:12px; border-left:1px solid var(--border); padding-left:12px;">
+    <button class="filter-btn" onclick="filterSim(this)">只看有模擬引擎 ✅</button>
+  </span>
+</div>
+
+<!-- Table -->
+<div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>軟體名稱</th>
+        <th>公司</th>
+        <th>平台</th>
+        <th>價格</th>
+        <th class="center">策略<br>模擬</th>
+        <th>相似功能（與 BJ Analyzer 重疊）</th>
+        <th>其他功能（競品有，BJ Analyzer 沒有）</th>
+        <th>連結</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- 1 -->
+      <tr data-platform="ios">
+        <td><span style="color:var(--ink-dim)">01</span></td>
+        <td><div class="app-name">Blackjack &amp; Card Counting Pro</div></td>
+        <td><div class="company-name">Blackjack Apprenticeship</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag">$4.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>Running Count / True Count</li>
+          <li>基本策略（Hard / Soft / Pairs）</li>
+          <li>規則自訂（H17/S17、DAS、RSA、投降）</li>
+          <li>下注倍率練習</li>
+          <li>局數統計</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>True Count 換算訓練</li>
+          <li>策略偏差表 Deviation Charts</li>
+          <li>雙手同桌同時遊玩</li>
+          <li>職業牌手設計結構化課程</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-card-counting-pro/id388857410" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 2 -->
+      <tr data-platform="ios">
+        <td><span style="color:var(--ink-dim)">02</span></td>
+        <td><div class="app-name">Blackjack 21: Strategy Trainer</div></td>
+        <td><div class="company-name">BlackJack Trainer 21 AG</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + $49.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>基本策略訓練（Hard / Soft / Pairs）</li>
+          <li>規則自訂</li>
+          <li>局數統計與進步追蹤</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>弱點自動偵測（記錄最常出錯牌型並優先練習）</li>
+          <li>策略圖表依規則即時動態更新</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-21-strategy-trainer/id597239290" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 3 -->
+      <tr data-platform="ios">
+        <td><span style="color:var(--ink-dim)">03</span></td>
+        <td><div class="app-name">Blackjack Hi-Lo Card Counting</div></td>
+        <td><div class="company-name">Double Down Software</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span></td>
+        <td><span class="price-tag">$14.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌系統</li>
+          <li>Running Count / True Count</li>
+          <li>規則自訂（H17/S17）</li>
+          <li>漸進難度訓練模式</li>
+          <li>局數統計</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>True Count 換算訓練</li>
+          <li>多玩家同桌模擬（1–5個位置）</li>
+          <li>荷官發牌速度調整</li>
+          <li>Mac 原生 App 支援</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-hi-lo-card-counting/id1621861617" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 4 -->
+      <tr data-platform="ios" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">04</span></td>
+        <td><div class="app-name">Blackjack Card Counting Pro</div></td>
+        <td><div class="company-name">Double Down Software</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span></td>
+        <td><span class="price-tag">$19.99</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌系統</li>
+          <li>模擬引擎（10萬手／秒）</li>
+          <li>基本策略訓練</li>
+          <li>規則自訂</li>
+          <li>統計與錯誤分析</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>KO / REKO / FELT 等額外算牌系統</li>
+          <li>True Count 換算測驗</li>
+          <li>策略偏差訓練</li>
+          <li>自訂算牌系統建立</li>
+          <li>Mac 原生 App 支援</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-card-counting-pro/id6505133534" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 5 -->
+      <tr data-platform="ios">
+        <td><span style="color:var(--ink-dim)">05</span></td>
+        <td><div class="app-name">Card Counting Coach</div></td>
+        <td><div class="company-name">Justin Ackermann</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + $9.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>多種練習模式</li>
+          <li>局數統計</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li><strong>16種算牌系統</strong>（Hi-Opt I/II、KO、Omega-II、Red 7、Silver Fox、Zen、Wong Halves 等）</li>
+          <li>Beat the Clock 限時計數挑戰</li>
+          <li>Dealt Out 完整副牌計數訓練</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/card-counting-coach/id1546423936" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 6 -->
+      <tr data-platform="ios">
+        <td><span style="color:var(--ink-dim)">06</span></td>
+        <td><div class="app-name">Card Counter</div></td>
+        <td><div class="company-name">TMSOFT</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag">$2.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌系統</li>
+          <li>多難度等級練習</li>
+          <li>局數統計</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>9種算牌系統（KO、Omega II、Red 7、KISS III 等）</li>
+          <li>自訂算牌系統建立</li>
+          <li>語音旁白輔助訓練</li>
+          <li>Game Center 成就系統</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/card-counter/id293742180" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 7 -->
+      <tr data-platform="ios" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">07</span></td>
+        <td><div class="app-name">Blackjack Trainer: All in One</div></td>
+        <td><div class="company-name">Blue Wind Service Co.</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + $5.99</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>模擬引擎（數百萬手）</li>
+          <li>基本策略訓練</li>
+          <li>規則自訂</li>
+          <li>局數統計</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li><strong>House Edge 勝率計算機</strong>（直接顯示賭場優勢%）</li>
+          <li>策略索引圖表（Index Charts）</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-trainer-all-in-one/id1470754366" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 8 -->
+      <tr data-platform="ios">
+        <td><span style="color:var(--ink-dim)">08</span></td>
+        <td><div class="app-name">Blackjack Trainer Card Counter</div></td>
+        <td><div class="company-name">Growth Garage LLC</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + 終身 $119.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>LV 漸進難度系統</li>
+          <li>局數統計與進步追蹤</li>
+          <li>對子／軟牌／硬牌分項練習</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>智能自適應難度（AI依用戶表現即時調整）</li>
+          <li>Step-by-Step 結構化學習課程</li>
+          <li>訂閱制持續更新內容</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-trainer-card-counter/id6717589612" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 9 -->
+      <tr data-platform="ios">
+        <td><span style="color:var(--ink-dim)">09</span></td>
+        <td><div class="app-name">Nightcard: Blackjack Trainer</div></td>
+        <td><div class="company-name">Nightcard LLC</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + $4.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>基本策略訓練</li>
+          <li>規則自訂（牌靴數）</li>
+          <li>多語言支援（<strong>34種</strong>，我們有22種）</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>Learn Mode 遊玩時即時策略提示</li>
+          <li>個人化牌桌視覺外觀設計</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/nightcard-blackjack-trainer/id6738871313" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 10 -->
+      <tr data-platform="ios" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">10</span></td>
+        <td><div class="app-name">My Blackjack Strategy</div></td>
+        <td><div class="company-name">Revolve Works LLC</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span></td>
+        <td><span class="price-tag">$0.99</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>模擬引擎（數千手）</li>
+          <li>Martingale 下注模擬</li>
+          <li>勝負統計視覺化</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>Paroli 下注系統</li>
+          <li>D'Alembert 下注系統</li>
+          <li>自訂策略規則建立</li>
+          <li>策略匯出功能</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/my-blackjack-strategy/id6480580810" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 11 -->
+      <tr data-platform="ios" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">11</span></td>
+        <td><div class="app-name">Steve's Blackjack Trainer Pro</div></td>
+        <td><div class="company-name">Fuse Games LLC</div></td>
+        <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-pc">PC</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + $2.99</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>模擬引擎（數千手自動執行）</li>
+          <li>Martingale 下注模擬測試</li>
+          <li>基本策略訓練</li>
+          <li>即時統計（勝率／損益）</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>Wong In/Out 策略</li>
+          <li>Arcade 闖關遊戲模式</li>
+          <li>牌靴可稽核功能</li>
+          <li>Steam（PC）同步上架</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://apps.apple.com/us/app/steves-blackjack-trainer-pro/id6737786146" target="_blank">App Store ↗</a></td>
+      </tr>
+
+      <!-- 12 -->
+      <tr data-platform="android" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">12</span></td>
+        <td><div class="app-name">Blackjack All-In-One Trainer</div></td>
+        <td><div class="company-name">Blue Wind Service Co.</div></td>
+        <td><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + Pro</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>模擬引擎（數百萬手）</li>
+          <li>基本策略訓練</li>
+          <li>規則自訂</li>
+          <li>局數統計</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>策略索引圖表（Index Charts）</li>
+          <li>House Edge 即時顯示</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://play.google.com/store/apps/details?id=blackjack.allin1.com" target="_blank">Google Play ↗</a></td>
+      </tr>
+
+      <!-- 13 -->
+      <tr data-platform="android">
+        <td><span style="color:var(--ink-dim)">13</span></td>
+        <td><div class="app-name">Blackjack Counter</div></td>
+        <td><div class="company-name">VectorLogic</div></td>
+        <td><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-tag"><span class="price-free">免費</span> + $5.99</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌系統</li>
+          <li>RC / TC 即時顯示</li>
+          <li>下注倍率建議</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li><strong>7種算牌系統</strong>（KO、ReKO、Hi-Opt II、Omega II、Zen、Wong Halves）</li>
+          <li>即時 House Edge 計算（隨RC值動態變動）</li>
+          <li>Ace 側記牌面板</li>
+          <li>發牌歷程＋單步撤銷</li>
+          <li>隱私優先設計（無需帳號）</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://blackjackcounter.app/" target="_blank">官網 ↗</a></td>
+      </tr>
+
+      <!-- 14 -->
+      <tr data-platform="android">
+        <td><span style="color:var(--ink-dim)">14</span></td>
+        <td><div class="app-name">Blackjack Ace</div></td>
+        <td><div class="company-name">獨立開發者</div></td>
+        <td><span class="platform-tag tag-android">Android</span></td>
+        <td><span class="price-free" style="font-weight:700">免費</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>基本策略訓練</li>
+          <li>規則自訂</li>
+          <li>局數統計（勝率／平手／爆牌）</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>選擇性弱項手牌練習（只練最差牌型）</li>
+          <li>完整發牌歷程記錄</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://play.google.com/store/apps/details?id=com.blackjack_ace.blackjackace" target="_blank">Google Play ↗</a></td>
+      </tr>
+
+      <!-- 15 -->
+      <tr data-platform="pc" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">15</span></td>
+        <td><div class="app-name">Casino Vérité (CVBJ/CVCX/CVData)</div></td>
+        <td><div class="company-name">QFIT / Norman Wattenberger</div></td>
+        <td><span class="platform-tag tag-pc">Windows</span></td>
+        <td><span class="price-tag">$115–$250</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌系統</li>
+          <li>模擬引擎（<strong>數十億手，業界最強</strong>）</li>
+          <li>基本策略訓練</li>
+          <li>規則自訂（牌靴／H17/S17／DAS）</li>
+          <li>下注倍率設定</li>
+          <li>詳細統計報告</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li><strong>20+種算牌系統</strong></li>
+          <li><strong>1,800+真實賭場規則資料庫</strong></li>
+          <li>破產風險計算 Risk of Ruin</li>
+          <li>Kelly Criterion 最佳下注計算</li>
+          <li>洗牌追蹤 Shuffle Tracking</li>
+          <li>Ace 預測技術</li>
+          <li>底牌窺視策略 Hole Card</li>
+          <li>500+遊戲參數自訂</li>
+          <li>250,000組預載模擬（CVCX）</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://www.qfit.com/orders.htm" target="_blank">官網 ↗</a></td>
+      </tr>
+
+      <!-- 16 -->
+      <tr data-platform="pc" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">16</span></td>
+        <td><div class="app-name">DeepNet Blackjack Suite</div></td>
+        <td><div class="company-name">DeepNet Technologies</div></td>
+        <td><span class="platform-tag tag-pc">Windows</span></td>
+        <td><span class="price-tag">$40–$65</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>算牌系統訓練</li>
+          <li>基本策略訓練</li>
+          <li>模擬引擎（數百萬手）</li>
+          <li>統計報告</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>破產風險計算 Risk of Ruin</li>
+          <li>Kelly Criterion 下注計算</li>
+          <li>3種學習模式（Drill / Table / Memorize）</li>
+          <li>模組化購買（按需分開買）</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://www.deepnettech.com/blackjack.html" target="_blank">官網 ↗</a></td>
+      </tr>
+
+      <!-- 17 -->
+      <tr data-platform="pc">
+        <td><span style="color:var(--ink-dim)">17</span></td>
+        <td><div class="app-name">Blackjack Trainer</div></td>
+        <td><div class="company-name">Avantage Games</div></td>
+        <td><span class="platform-tag tag-pc">Steam</span></td>
+        <td><span class="price-tag">$5</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>基本策略訓練</li>
+          <li>規則自訂（1–8副牌、H17/S17）</li>
+          <li>統計追蹤</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>生存模式（Survival Mode）</li>
+          <li>跨平台（Win / Mac / Linux）</li>
+          <li>無需帳號登入</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://store.steampowered.com/app/3974240/Blackjack_Trainer/" target="_blank">Steam ↗</a></td>
+      </tr>
+
+      <!-- 18 -->
+      <tr data-platform="pc" class="sim-yes">
+        <td><span style="color:var(--ink-dim)">18</span></td>
+        <td><div class="app-name">Jester Street: Card Counting Trainer</div></td>
+        <td><div class="company-name">Geek Tweak Games</div></td>
+        <td><span class="platform-tag tag-pc">Steam</span></td>
+        <td><span class="price-tag">$6</span></td>
+        <td class="center"><span class="sim-yes-icon">✅</span></td>
+        <td><ul class="feature-list">
+          <li>Hi-Lo 算牌訓練</li>
+          <li>基本策略圖表</li>
+          <li>模擬引擎（Simulator 2100，自動執行數百局）</li>
+          <li>規則自訂（1–8副牌）</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>KO 算牌系統</li>
+          <li>簡體中文支援</li>
+          <li>獨特敘事場景（洗衣店背景）</li>
+          <li>PC 平台發行（已停更）</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://store.steampowered.com/app/1828070/Jester_Street__Card_Counting_Trainer/" target="_blank">Steam ↗</a></td>
+      </tr>
+
+      <!-- 19 -->
+      <tr data-platform="web">
+        <td><span style="color:var(--ink-dim)">19</span></td>
+        <td><div class="app-name">blackjack.training</div></td>
+        <td><div class="company-name">不明</div></td>
+        <td><span class="platform-tag tag-web">Web</span></td>
+        <td><span class="price-free" style="font-weight:700">免費</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>基本策略訓練</li>
+          <li>規則自訂</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>策略小抄參考頁</li>
+          <li>瀏覽器免安裝直接使用</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://blackjack.training/" target="_blank">網站 ↗</a></td>
+      </tr>
+
+      <!-- 20 -->
+      <tr data-platform="web">
+        <td><span style="color:var(--ink-dim)">20</span></td>
+        <td><div class="app-name">basicstrategy.app</div></td>
+        <td><div class="company-name">不明</div></td>
+        <td><span class="platform-tag tag-web">Web</span></td>
+        <td><span class="price-free" style="font-weight:700">免費</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>基本策略訓練（Hard / Soft / Pairs）</li>
+          <li>答題準確率追蹤</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>ENHC / NHPC 兩種遊戲規則變體</li>
+          <li>錯誤題自動重播機制</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://basicstrategy.app/" target="_blank">網站 ↗</a></td>
+      </tr>
+
+      <!-- 21 -->
+      <tr data-platform="web">
+        <td><span style="color:var(--ink-dim)">21</span></td>
+        <td><div class="app-name">Wizard of Odds Trainer</div></td>
+        <td><div class="company-name">Michael Shackleford</div></td>
+        <td><span class="platform-tag tag-web">Web</span></td>
+        <td><span class="price-free" style="font-weight:700">免費</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>基本策略訓練</li>
+          <li>算牌入門教學</li>
+          <li>多種規則變體</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>完整數學 EV 期望值分析（各手牌精確計算）</li>
+          <li>業界最高公信力學術資源</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://wizardofodds.com" target="_blank">網站 ↗</a></td>
+      </tr>
+
+      <!-- 22 -->
+      <tr data-platform="web">
+        <td><span style="color:var(--ink-dim)">22</span></td>
+        <td><div class="app-name">BlackjackSimulator.net</div></td>
+        <td><div class="company-name">不明</div></td>
+        <td><span class="platform-tag tag-web">Web</span></td>
+        <td><span class="price-free" style="font-weight:700">免費</span></td>
+        <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td><ul class="feature-list">
+          <li>多語言介面（25種）</li>
+          <li>規則自訂</li>
+        </ul></td>
+        <td><ul class="feature-list other-list">
+          <li>Double Exposure / Switch / Spanish 21 等變體玩法</li>
+          <li>純遊玩，無訓練功能</li>
+        </ul></td>
+        <td><a class="link-btn" href="https://www.blackjacksimulator.net/" target="_blank">網站 ↗</a></td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!-- Advantage Section -->
+<div class="advantage-section">
+  <h2>♠ BJ Analyzer 的市場差異化優勢</h2>
+  <div class="advantage-grid">
+    <div class="advantage-card highlight">
+      <h3>✅ 算牌 ＋ 模擬 ＋ 22語言 三合一</h3>
+      <p>全市場 22 個競品中，沒有任何一個同時具備完整算牌訓練、策略模擬引擎、和 22 種語言支援。這個組合目前是市場空白。</p>
+    </div>
+    <div class="advantage-card highlight">
+      <h3>✅ Parlay 闖關下注模式</h3>
+      <p>所有競品均無此功能。Parlay 連贏序列管理是 BJ Analyzer 獨有的設計，沒有直接競品。</p>
+    </div>
+    <div class="advantage-card highlight">
+      <h3>✅ 多元下注策略同時比較</h3>
+      <p>能同時模擬並比較 Normal / Parlay / Martingale 三種下注策略的行動端工具，市場上目前不存在。</p>
+    </div>
+    <div class="advantage-card">
+      <h3>🟡 行動端模擬引擎稀缺</h3>
+      <p>iOS / Android 有模擬引擎的競品只有 4 個，且規模與功能深度均不如桌面版。BJ Analyzer 填補了行動端高品質模擬的市場空缺。</p>
+    </div>
+    <div class="advantage-card">
+      <h3>🟡 True Count 為未來擴充方向</h3>
+      <p>主要競品（BJA、Double Down 系列）均提供 True Count 換算訓練，這是進階算牌的關鍵步驟，可考慮未來加入。</p>
+    </div>
+    <div class="advantage-card">
+      <h3>🟡 Risk of Ruin 行動版空白</h3>
+      <p>破產風險計算目前只存在於 $125–$250 的桌面軟體。若加入行動版，將是高端用戶的強力吸引點。</p>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer">
+  <p>BJ Analyzer · 競品分析報告 · 2025 · 資料來源：App Store / Google Play / Steam / 各官方網站</p>
+</div>
+
+<script>
+  let simOnly = false;
+  let currentPlatform = 'all';
+
+  function applyFilters() {
+    document.querySelectorAll('tbody tr').forEach(row => {
+      const platform = row.dataset.platform;
+      const hasSim = row.classList.contains('sim-yes');
+      const platformMatch = currentPlatform === 'all' || platform === currentPlatform;
+      const simMatch = !simOnly || hasSim;
+      row.classList.toggle('hidden', !(platformMatch && simMatch));
+    });
+  }
+
+  function filterPlatform(p, btn) {
+    currentPlatform = p;
+    document.querySelectorAll('.controls .filter-btn').forEach(b => {
+      if (!b.textContent.includes('模擬')) b.classList.remove('active');
+    });
+    btn.classList.add('active');
+    applyFilters();
+  }
+
+  function filterSim(btn) {
+    simOnly = !simOnly;
+    btn.classList.toggle('active', simOnly);
+    applyFilters();
+  }
+</script>
+
+</body>
+</html>
