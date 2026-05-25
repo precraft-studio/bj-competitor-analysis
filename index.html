@@ -18,16 +18,11 @@
       --ink-dim:   rgba(245,241,218,0.5);
       --font-mono: 'SF Mono', 'Fira Code', 'Consolas', monospace;
     }
-
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     body {
-      background: var(--bg);
-      color: var(--ink);
+      background: var(--bg); color: var(--ink);
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      font-size: 14px;
-      line-height: 1.6;
-      padding: 0 0 60px;
+      font-size: 14px; line-height: 1.6; padding: 0 0 60px;
     }
 
     /* ── Lang Toggle ── */
@@ -51,55 +46,30 @@
     .page-header {
       background: linear-gradient(135deg, #0d2b16 0%, #06120a 100%);
       border-bottom: 1px solid var(--border);
-      padding: 40px 32px 32px;
-      text-align: center;
+      padding: 40px 32px 32px; text-align: center;
     }
     .page-header h1 {
-      font-size: clamp(22px, 4vw, 32px);
-      font-weight: 800;
-      color: var(--gold);
-      letter-spacing: -0.5px;
-      margin-bottom: 8px;
+      font-size: clamp(22px, 4vw, 32px); font-weight: 800;
+      color: var(--gold); letter-spacing: -0.5px; margin-bottom: 8px;
     }
     .page-header p { color: var(--ink-dim); font-size: 14px; }
-    .badge-row {
-      display: flex; gap: 10px; justify-content: center;
-      flex-wrap: wrap; margin-top: 18px;
-    }
-    .badge {
-      padding: 4px 14px; border-radius: 20px; font-size: 12px;
-      font-weight: 600; font-family: var(--font-mono);
-    }
+    .badge-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 18px; }
+    .badge { padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: 600; font-family: var(--font-mono); }
     .badge-gold  { background: rgba(232,197,71,0.15); border: 1px solid rgba(232,197,71,0.4); color: var(--gold); }
     .badge-green { background: rgba(34,197,94,0.12);  border: 1px solid rgba(34,197,94,0.35);  color: var(--green); }
     .badge-cyan  { background: rgba(34,211,238,0.12); border: 1px solid rgba(34,211,238,0.35); color: var(--cyan); }
 
     /* ── Summary Cards ── */
     .summary-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 12px; max-width: 900px;
-      margin: 32px auto 0; padding: 0 24px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px; max-width: 900px; margin: 32px auto 0; padding: 0 24px;
     }
-    .summary-card {
-      background: var(--surface); border: 1px solid var(--border);
-      border-radius: 12px; padding: 18px 16px; text-align: center;
-    }
-    .summary-card .num {
-      font-size: 28px; font-weight: 800;
-      font-family: var(--font-mono); color: var(--gold);
-    }
-    .summary-card .label {
-      font-size: 11px; color: var(--ink-dim);
-      margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px;
-    }
+    .summary-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 16px; text-align: center; }
+    .summary-card .num { font-size: 28px; font-weight: 800; font-family: var(--font-mono); color: var(--gold); }
+    .summary-card .label { font-size: 11px; color: var(--ink-dim); margin-top: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
 
     /* ── Controls ── */
-    .controls {
-      max-width: 1400px; margin: 28px auto 16px;
-      padding: 0 20px;
-      display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-    }
+    .controls { max-width: 1500px; margin: 28px auto 16px; padding: 0 20px; display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
     .filter-btn {
       padding: 7px 16px; border-radius: 8px; border: 1px solid var(--border);
       background: var(--surface); color: var(--ink-dim);
@@ -107,23 +77,14 @@
       transition: all 0.15s; font-family: inherit;
     }
     .filter-btn:hover { border-color: rgba(232,197,71,0.4); color: var(--ink); }
-    .filter-btn.active {
-      background: rgba(232,197,71,0.12);
-      border-color: rgba(232,197,71,0.5);
-      color: var(--gold);
-    }
+    .filter-btn.active { background: rgba(232,197,71,0.12); border-color: rgba(232,197,71,0.5); color: var(--gold); }
     .controls-label { color: var(--ink-dim); font-size: 12px; margin-right: 4px; }
 
-    /* ── Table Wrapper ── */
-    .table-wrap { max-width: 1400px; margin: 0 auto; padding: 0 16px; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; min-width: 900px; }
+    /* ── Table ── */
+    .table-wrap { max-width: 1500px; margin: 0 auto; padding: 0 16px; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; min-width: 1100px; }
     thead tr { background: var(--surface2); border-bottom: 2px solid var(--gold); }
-    thead th {
-      padding: 13px 12px; text-align: left;
-      font-size: 11px; font-weight: 700;
-      text-transform: uppercase; letter-spacing: 0.8px;
-      color: var(--gold); white-space: nowrap;
-    }
+    thead th { padding: 13px 12px; text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: var(--gold); white-space: nowrap; }
     thead th.center { text-align: center; }
     tbody tr { border-bottom: 1px solid var(--border); transition: background 0.12s; }
     tbody tr:hover { background: rgba(245,241,218,0.03); }
@@ -131,30 +92,32 @@
     tbody tr.hidden  { display: none; }
     td { padding: 13px 12px; vertical-align: top; font-size: 13px; color: var(--ink); }
     td.center { text-align: center; }
+    td.sim-desc { min-width: 180px; max-width: 240px; }
 
     /* ── Cell Styles ── */
     .app-name { font-weight: 700; font-size: 13px; color: var(--ink); white-space: nowrap; }
-    .platform-tag {
-      display: inline-block; padding: 2px 8px; border-radius: 4px;
-      font-size: 10px; font-weight: 600; margin: 1px 2px;
-      font-family: var(--font-mono);
-    }
+    .platform-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; margin: 1px 2px; font-family: var(--font-mono); }
     .tag-ios    { background: rgba(34,211,238,0.12); color: var(--cyan);  border: 1px solid rgba(34,211,238,0.25); }
-    .tag-android{ background: rgba(34,197,94,0.12);  color: var(--green); border: 1px solid rgba(34,197,94,0.25);  }
+    .tag-android{ background: rgba(34,197,94,0.12);  color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
     .tag-pc     { background: rgba(168,85,247,0.12); color: #c084fc;      border: 1px solid rgba(168,85,247,0.25); }
     .tag-web    { background: rgba(245,158,11,0.12); color: #fbbf24;      border: 1px solid rgba(245,158,11,0.25); }
 
     .price-tag { font-family: var(--font-mono); font-size: 12px; font-weight: 700; color: var(--gold); white-space: nowrap; }
     .price-free { color: var(--green); }
-
     .sim-yes-icon { font-size: 22px; color: var(--green); text-shadow: 0 0 12px rgba(34,197,94,0.5); }
     .sim-no-icon  { font-size: 18px; color: rgba(245,241,218,0.2); }
+    .sim-none-dash { font-size: 20px; color: rgba(245,241,218,0.15); }
+
+    .sim-desc-text { font-size: 12px; color: rgba(245,241,218,0.75); line-height: 1.65; }
+    .sim-desc-tag {
+      display: inline-block; margin-bottom: 6px; padding: 2px 8px;
+      border-radius: 4px; font-size: 10px; font-weight: 700;
+      background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.3);
+      color: var(--green); font-family: var(--font-mono); letter-spacing: 0.3px;
+    }
 
     .feature-list { list-style: none; padding: 0; }
-    .feature-list li {
-      padding: 2px 0; font-size: 12px; color: rgba(245,241,218,0.8);
-      display: flex; gap: 6px; align-items: flex-start;
-    }
+    .feature-list li { padding: 2px 0; font-size: 12px; color: rgba(245,241,218,0.8); display: flex; gap: 6px; align-items: flex-start; }
     .feature-list li::before { content: '•'; color: var(--gold); flex-shrink: 0; }
     .other-list li::before { color: var(--cyan); }
 
@@ -163,32 +126,23 @@
 
     .link-btn {
       display: inline-block; padding: 5px 12px;
-      background: rgba(232,197,71,0.08);
-      border: 1px solid rgba(232,197,71,0.3);
-      border-radius: 6px; color: var(--gold);
-      font-size: 11px; font-weight: 600;
-      text-decoration: none; white-space: nowrap;
-      transition: all 0.15s;
+      background: rgba(232,197,71,0.08); border: 1px solid rgba(232,197,71,0.3);
+      border-radius: 6px; color: var(--gold); font-size: 11px; font-weight: 600;
+      text-decoration: none; white-space: nowrap; transition: all 0.15s;
     }
     .link-btn:hover { background: rgba(232,197,71,0.18); border-color: rgba(232,197,71,0.6); }
     .company-name { color: var(--ink-dim); font-size: 12px; }
 
-    /* ── Advantage Box ── */
-    .advantage-section { max-width: 1400px; margin: 40px auto 0; padding: 0 20px; }
-    .advantage-section h2 {
-      font-size: 16px; font-weight: 700; color: var(--gold);
-      margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border);
-    }
+    /* ── Advantage ── */
+    .advantage-section { max-width: 1500px; margin: 40px auto 0; padding: 0 20px; }
+    .advantage-section h2 { font-size: 16px; font-weight: 700; color: var(--gold); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
     .advantage-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
     .advantage-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px; }
     .advantage-card.highlight { border-color: rgba(34,197,94,0.4); background: rgba(34,197,94,0.04); }
     .advantage-card h3 { font-size: 13px; font-weight: 700; color: var(--green); margin-bottom: 8px; }
     .advantage-card p { font-size: 12px; color: var(--ink-dim); line-height: 1.7; }
 
-    /* ── Footer ── */
     .page-footer { text-align: center; padding: 32px 20px 0; color: var(--ink-dim); font-size: 11px; }
-
-    /* ── Scrollbar ── */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: rgba(232,197,71,0.3); border-radius: 3px; }
@@ -216,22 +170,10 @@
 
 <!-- Summary Cards -->
 <div class="summary-grid">
-  <div class="summary-card">
-    <div class="num">22</div>
-    <div class="label" data-zh="競品總數" data-th="จำนวนคู่แข่งทั้งหมด">競品總數</div>
-  </div>
-  <div class="summary-card">
-    <div class="num">8</div>
-    <div class="label" data-zh="有策略模擬" data-th="มีการจำลองกลยุทธ์">有策略模擬</div>
-  </div>
-  <div class="summary-card">
-    <div class="num">$0–$250</div>
-    <div class="label" data-zh="市場價格範圍" data-th="ช่วงราคาในตลาด">市場價格範圍</div>
-  </div>
-  <div class="summary-card">
-    <div class="num">0</div>
-    <div class="label" data-zh="算牌＋模擬＋22語言" data-th="นับไพ่＋จำลอง＋22ภาษา">算牌＋模擬＋22語言</div>
-  </div>
+  <div class="summary-card"><div class="num">22</div><div class="label" data-zh="競品總數" data-th="จำนวนคู่แข่งทั้งหมด">競品總數</div></div>
+  <div class="summary-card"><div class="num">8</div><div class="label" data-zh="有策略模擬" data-th="มีการจำลองกลยุทธ์">有策略模擬</div></div>
+  <div class="summary-card"><div class="num">$0–$250</div><div class="label" data-zh="市場價格範圍" data-th="ช่วงราคาในตลาด">市場價格範圍</div></div>
+  <div class="summary-card"><div class="num">0</div><div class="label" data-zh="算牌＋模擬＋22語言" data-th="นับไพ่＋จำลอง＋22ภาษา">算牌＋模擬＋22語言</div></div>
 </div>
 
 <!-- Filter Controls -->
@@ -240,7 +182,7 @@
   <button class="filter-btn active" onclick="filterPlatform('all', this)" data-zh="全部" data-th="ทั้งหมด">全部</button>
   <button class="filter-btn" onclick="filterPlatform('ios', this)">iOS</button>
   <button class="filter-btn" onclick="filterPlatform('android', this)">Android</button>
-  <button class="filter-btn" onclick="filterPlatform('pc', this)" data-zh="PC / Steam" data-th="PC / Steam">PC / Steam</button>
+  <button class="filter-btn" onclick="filterPlatform('pc', this)">PC / Steam</button>
   <button class="filter-btn" onclick="filterPlatform('web', this)">Web</button>
   <span style="margin-left:12px; border-left:1px solid var(--border); padding-left:12px;">
     <button class="filter-btn" onclick="filterSim(this)" data-zh="只看有模擬引擎 ✅" data-th="เฉพาะที่มีเครื่องจำลอง ✅">只看有模擬引擎 ✅</button>
@@ -258,6 +200,7 @@
         <th data-zh="平台" data-th="แพลตฟอร์ม">平台</th>
         <th data-zh="價格" data-th="ราคา">價格</th>
         <th class="center" data-zh="策略<br>模擬" data-th="จำลอง<br>กลยุทธ์">策略<br>模擬</th>
+        <th data-zh="模擬內容（模擬什麼）" data-th="เนื้อหาการจำลอง (จำลองอะไร)">模擬內容（模擬什麼）</th>
         <th data-zh="相似功能（與 BJ Analyzer 重疊）" data-th="ฟีเจอร์คล้ายกัน (ซ้อนทับกับ BJ Analyzer)">相似功能（與 BJ Analyzer 重疊）</th>
         <th data-zh="其他功能（競品有，BJ Analyzer 沒有）" data-th="ฟีเจอร์อื่น (คู่แข่งมี, BJ Analyzer ไม่มี)">其他功能（競品有，BJ Analyzer 沒有）</th>
         <th data-zh="連結" data-th="ลิงก์">連結</th>
@@ -273,21 +216,14 @@
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag">$4.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>Running Count / True Count</li><li>基本策略（Hard / Soft / Pairs）</li><li>規則自訂（H17/S17、DAS、RSA、投降）</li><li>下注倍率練習</li><li>局數統計</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>Running Count / True Count</li><li>กลยุทธ์พื้นฐาน (Hard / Soft / Pairs)</li><li>ปรับแต่งกฎ (H17/S17, DAS, RSA, ยอมแพ้)</li><li>ฝึกอัตราการวางเดิมพัน</li><li>สถิติรอบการเล่น</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>Running Count / True Count</li><li>基本策略（Hard / Soft / Pairs）</li><li>規則自訂（H17/S17、DAS、RSA、投降）</li><li>下注倍率練習</li><li>局數統計</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>Running Count / True Count</li><li>กลยุทธ์พื้นฐาน (Hard / Soft / Pairs)</li><li>ปรับแต่งกฎ (H17/S17, DAS, RSA, ยอมแพ้)</li><li>ฝึกอัตราการวางเดิมพัน</li><li>สถิติรอบการเล่น</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>True Count 換算訓練</li><li>策略偏差表 Deviation Charts</li><li>雙手同桌同時遊玩</li><li>職業牌手設計結構化課程</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ฝึกแปลง True Count</li><li>ตาราง Deviation Charts</li><li>เล่นพร้อมกันสองมือบนโต๊ะเดียว</li><li>หลักสูตรโครงสร้างโดยนักไพ่มืออาชีพ</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>True Count 換算訓練</li><li>策略偏差表 Deviation Charts</li><li>雙手同桌同時遊玩</li><li>職業牌手設計結構化課程</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ฝึกแปลง True Count</li><li>ตาราง Deviation Charts</li><li>เล่นพร้อมกันสองมือบนโต๊ะเดียว</li><li>หลักสูตรโครงสร้างโดยนักไพ่มืออาชีพ</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-card-counting-pro/id388857410" target="_blank">App Store ↗</a></td>
       </tr>
@@ -300,21 +236,14 @@
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $49.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>基本策略訓練（Hard / Soft / Pairs）</li><li>規則自訂</li><li>局數統計與進步追蹤</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกกลยุทธ์พื้นฐาน (Hard / Soft / Pairs)</li><li>ปรับแต่งกฎ</li><li>สถิติรอบและการติดตามความก้าวหน้า</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>基本策略訓練（Hard / Soft / Pairs）</li><li>規則自訂</li><li>局數統計與進步追蹤</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกกลยุทธ์พื้นฐาน (Hard / Soft / Pairs)</li><li>ปรับแต่งกฎ</li><li>สถิติรอบและการติดตามความก้าวหน้า</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>弱點自動偵測（記錄最常出錯牌型並優先練習）</li><li>策略圖表依規則即時動態更新</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ตรวจจับจุดอ่อนอัตโนมัติ (บันทึกไพ่ที่ผิดพลาดบ่อยและฝึกก่อน)</li><li>แผนภูมิกลยุทธ์อัปเดตแบบเรียลไทม์ตามกฎ</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>弱點自動偵測（記錄最常出錯牌型並優先練習）</li><li>策略圖表依規則即時動態更新</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ตรวจจับจุดอ่อนอัตโนมัติ (บันทึกไพ่ที่ผิดพลาดบ่อยและฝึกก่อน)</li><li>แผนภูมิกลยุทธ์อัปเดตแบบเรียลไทม์ตามกฎ</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-21-strategy-trainer/id597239290" target="_blank">App Store ↗</a></td>
       </tr>
@@ -327,26 +256,19 @@
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag">$14.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌系統</li><li>Running Count / True Count</li><li>規則自訂（H17/S17）</li><li>漸進難度訓練模式</li><li>局數統計</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ระบบนับไพ่ Hi-Lo</li><li>Running Count / True Count</li><li>ปรับแต่งกฎ (H17/S17)</li><li>โหมดฝึกความยากแบบค่อยเป็นค่อยไป</li><li>สถิติรอบการเล่น</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌系統</li><li>Running Count / True Count</li><li>規則自訂（H17/S17）</li><li>漸進難度訓練模式</li><li>局數統計</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ระบบนับไพ่ Hi-Lo</li><li>Running Count / True Count</li><li>ปรับแต่งกฎ (H17/S17)</li><li>โหมดฝึกความยากแบบค่อยเป็นค่อยไป</li><li>สถิติรอบการเล่น</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>True Count 換算訓練</li><li>多玩家同桌模擬（1–5個位置）</li><li>荷官發牌速度調整</li><li>Mac 原生 App 支援</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ฝึกแปลง True Count</li><li>จำลองหลายผู้เล่นบนโต๊ะเดียว (1–5 ตำแหน่ง)</li><li>ปรับความเร็วการแจกไพ่ของดีลเลอร์</li><li>รองรับแอปดั้งเดิมของ Mac</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>True Count 換算訓練</li><li>多玩家同桌模擬（1–5個位置）</li><li>荷官發牌速度調整</li><li>Mac 原生 App 支援</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ฝึกแปลง True Count</li><li>จำลองหลายผู้เล่นบนโต๊ะเดียว (1–5 ตำแหน่ง)</li><li>ปรับความเร็วการแจกไพ่ของดีลเลอร์</li><li>รองรับแอปดั้งเดิมของ Mac</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-hi-lo-card-counting/id1621861617" target="_blank">App Store ↗</a></td>
       </tr>
 
-      <!-- 4 -->
+      <!-- 4 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">04</span></td>
         <td><div class="app-name">Blackjack Card Counting Pro</div></td>
@@ -354,21 +276,23 @@
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag">$19.99</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌系統</li><li>模擬引擎（10萬手／秒）</li><li>基本策略訓練</li><li>規則自訂</li><li>統計與錯誤分析</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ระบบนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (100,000 มือ/วินาที)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติและการวิเคราะห์ข้อผิดพลาด</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">算牌系統績效</div>
+            <div class="sim-desc-text">以 10 萬手／秒速度跑牌，測試 Hi-Lo / KO / REKO 等算牌系統在各種規則下的長期期望值（EV%）與勝率。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">ประสิทธิภาพระบบนับไพ่</div>
+            <div class="sim-desc-text">รัน 100,000 มือ/วินาที ทดสอบระบบนับไพ่ Hi-Lo / KO / REKO ภายใต้กฎต่างๆ เพื่อคำนวณค่าคาดหวัง (EV%) และอัตราชนะระยะยาว</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>KO / REKO / FELT 等額外算牌系統</li><li>True Count 換算測驗</li><li>策略偏差訓練</li><li>自訂算牌系統建立</li><li>Mac 原生 App 支援</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ระบบนับไพ่เพิ่มเติม เช่น KO / REKO / FELT</li><li>ทดสอบแปลง True Count</li><li>ฝึก Strategy Deviation</li><li>สร้างระบบนับไพ่เอง</li><li>รองรับแอปดั้งเดิมของ Mac</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌系統</li><li>模擬引擎（10萬手／秒）</li><li>基本策略訓練</li><li>規則自訂</li><li>統計與錯誤分析</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ระบบนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (100,000 มือ/วินาที)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติและการวิเคราะห์ข้อผิดพลาด</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>KO / REKO / FELT 等額外算牌系統</li><li>True Count 換算測驗</li><li>策略偏差訓練</li><li>自訂算牌系統建立</li><li>Mac 原生 App 支援</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ระบบนับไพ่เพิ่มเติม เช่น KO / REKO / FELT</li><li>ทดสอบแปลง True Count</li><li>ฝึก Strategy Deviation</li><li>สร้างระบบนับไพ่เอง</li><li>รองรับแอปดั้งเดิมของ Mac</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-card-counting-pro/id6505133534" target="_blank">App Store ↗</a></td>
       </tr>
@@ -381,21 +305,14 @@
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $9.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>多種練習模式</li><li>局數統計</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>โหมดฝึกหลายรูปแบบ</li><li>สถิติรอบการเล่น</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>多種練習模式</li><li>局數統計</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>โหมดฝึกหลายรูปแบบ</li><li>สถิติรอบการเล่น</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li><strong>16種算牌系統</strong>（Hi-Opt I/II、KO、Omega-II、Red 7、Silver Fox、Zen、Wong Halves 等）</li><li>Beat the Clock 限時計數挑戰</li><li>Dealt Out 完整副牌計數訓練</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li><strong>16 ระบบนับไพ่</strong> (Hi-Opt I/II, KO, Omega-II, Red 7, Silver Fox, Zen, Wong Halves ฯลฯ)</li><li>ความท้าทายนับไพ่แบบจับเวลา Beat the Clock</li><li>ฝึกนับไพ่ครบชุด Dealt Out</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>16種算牌系統</strong>（Hi-Opt I/II、KO、Omega-II、Red 7、Silver Fox、Zen、Wong Halves 等）</li><li>Beat the Clock 限時計數挑戰</li><li>Dealt Out 完整副牌計數訓練</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>16 ระบบนับไพ่</strong> (Hi-Opt I/II, KO, Omega-II, Red 7, Silver Fox, Zen, Wong Halves ฯลฯ)</li><li>ความท้าทายนับไพ่แบบจับเวลา Beat the Clock</li><li>ฝึกนับไพ่ครบชุด Dealt Out</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/card-counting-coach/id1546423936" target="_blank">App Store ↗</a></td>
       </tr>
@@ -408,26 +325,19 @@
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag">$2.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌系統</li><li>多難度等級練習</li><li>局數統計</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ระบบนับไพ่ Hi-Lo</li><li>ฝึกหลายระดับความยาก</li><li>สถิติรอบการเล่น</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌系統</li><li>多難度等級練習</li><li>局數統計</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ระบบนับไพ่ Hi-Lo</li><li>ฝึกหลายระดับความยาก</li><li>สถิติรอบการเล่น</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>9種算牌系統（KO、Omega II、Red 7、KISS III 等）</li><li>自訂算牌系統建立</li><li>語音旁白輔助訓練</li><li>Game Center 成就系統</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>9 ระบบนับไพ่ (KO, Omega II, Red 7, KISS III ฯลฯ)</li><li>สร้างระบบนับไพ่เอง</li><li>ผู้ช่วยเสียงบรรยาย</li><li>ระบบความสำเร็จ Game Center</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>9種算牌系統（KO、Omega II、Red 7、KISS III 等）</li><li>自訂算牌系統建立</li><li>語音旁白輔助訓練</li><li>Game Center 成就系統</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>9 ระบบนับไพ่ (KO, Omega II, Red 7, KISS III ฯลฯ)</li><li>สร้างระบบนับไพ่เอง</li><li>ผู้ช่วยเสียงบรรยาย</li><li>ระบบความสำเร็จ Game Center</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/card-counter/id293742180" target="_blank">App Store ↗</a></td>
       </tr>
 
-      <!-- 7 -->
+      <!-- 7 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">07</span></td>
         <td><div class="app-name">Blackjack Trainer: All in One</div></td>
@@ -435,21 +345,23 @@
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $5.99</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>模擬引擎（數百萬手）</li><li>基本策略訓練</li><li>規則自訂</li><li>局數統計</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (หลายล้านมือ)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติรอบการเล่น</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">House Edge 計算</div>
+            <div class="sim-desc-text">模擬數百萬手牌，計算特定規則組合下賭場的 House Edge %，讓玩家選擇最有利的規則入桌。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">คำนวณ House Edge</div>
+            <div class="sim-desc-text">จำลองหลายล้านมือ คำนวณ House Edge % ภายใต้กฎที่กำหนด เพื่อช่วยให้ผู้เล่นเลือกโต๊ะที่ได้เปรียบที่สุด</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li><strong>House Edge 勝率計算機</strong>（直接顯示賭場優勢%）</li><li>策略索引圖表（Index Charts）</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li><strong>เครื่องคำนวณ House Edge</strong> (แสดง % ข้อได้เปรียบของบ้านโดยตรง)</li><li>แผนภูมิดัชนีกลยุทธ์ (Index Charts)</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>模擬引擎（數百萬手）</li><li>基本策略訓練</li><li>規則自訂</li><li>局數統計</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (หลายล้านมือ)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติรอบการเล่น</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>House Edge 勝率計算機</strong>（直接顯示賭場優勢%）</li><li>策略索引圖表（Index Charts）</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>เครื่องคำนวณ House Edge</strong> (แสดง % ข้อได้เปรียบของบ้านโดยตรง)</li><li>แผนภูมิดัชนีกลยุทธ์ (Index Charts)</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-trainer-all-in-one/id1470754366" target="_blank">App Store ↗</a></td>
       </tr>
@@ -462,21 +374,14 @@
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + <span data-zh="終身" data-th="ตลอดชีพ">終身</span> $119.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>LV 漸進難度系統</li><li>局數統計與進步追蹤</li><li>對子／軟牌／硬牌分項練習</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>ระบบความยากแบบค่อยเป็นค่อยไป LV</li><li>สถิติและการติดตามความก้าวหน้า</li><li>ฝึกแบ่งตาม Pairs / Soft / Hard</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>LV 漸進難度系統</li><li>局數統計與進步追蹤</li><li>對子／軟牌／硬牌分項練習</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>ระบบความยากแบบค่อยเป็นค่อยไป LV</li><li>สถิติและการติดตามความก้าวหน้า</li><li>ฝึกแบ่งตาม Pairs / Soft / Hard</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>智能自適應難度（AI依用戶表現即時調整）</li><li>Step-by-Step 結構化學習課程</li><li>訂閱制持續更新內容</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ปรับความยากอัจฉริยะ (AI ปรับตามผลการเล่นแบบเรียลไทม์)</li><li>หลักสูตรการเรียนรู้แบบทีละขั้นตอน</li><li>เนื้อหาอัปเดตต่อเนื่องแบบสมัครสมาชิก</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>智能自適應難度（AI依用戶表現即時調整）</li><li>Step-by-Step 結構化學習課程</li><li>訂閱制持續更新內容</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ปรับความยากอัจฉริยะ (AI ปรับตามผลการเล่นแบบเรียลไทม์)</li><li>หลักสูตรการเรียนรู้แบบทีละขั้นตอน</li><li>เนื้อหาอัปเดตต่อเนื่องแบบสมัครสมาชิก</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-trainer-card-counter/id6717589612" target="_blank">App Store ↗</a></td>
       </tr>
@@ -489,26 +394,19 @@
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $4.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>基本策略訓練</li><li>規則自訂（牌靴數）</li><li>多語言支援（<strong>34種</strong>，我們有22種）</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ (จำนวนสำรับ)</li><li>รองรับหลายภาษา (<strong>34 ภาษา</strong>, เรามี 22 ภาษา)</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>基本策略訓練</li><li>規則自訂（牌靴數）</li><li>多語言支援（<strong>34種</strong>，我們有22種）</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ (จำนวนสำรับ)</li><li>รองรับหลายภาษา (<strong>34 ภาษา</strong>, เรามี 22 ภาษา)</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>Learn Mode 遊玩時即時策略提示</li><li>個人化牌桌視覺外觀設計</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>Learn Mode คำแนะนำกลยุทธ์แบบเรียลไทม์ระหว่างเล่น</li><li>ออกแบบธีมโต๊ะส่วนตัว</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Learn Mode 遊玩時即時策略提示</li><li>個人化牌桌視覺外觀設計</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>Learn Mode คำแนะนำกลยุทธ์แบบเรียลไทม์ระหว่างเล่น</li><li>ออกแบบธีมโต๊ะส่วนตัว</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/nightcard-blackjack-trainer/id6738871313" target="_blank">App Store ↗</a></td>
       </tr>
 
-      <!-- 10 -->
+      <!-- 10 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">10</span></td>
         <td><div class="app-name">My Blackjack Strategy</div></td>
@@ -516,26 +414,28 @@
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag">$0.99</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>模擬引擎（數千手）</li><li>Martingale 下注模擬</li><li>勝負統計視覺化</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>เครื่องจำลอง (หลายพันมือ)</li><li>จำลอง Martingale</li><li>แสดงผลสถิติชนะ/แพ้</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">下注系統損益</div>
+            <div class="sim-desc-text">模擬數千手，比較 Martingale / Paroli / D'Alembert 三種下注系統的長期損益曲線，找出適合的下注策略。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">กำไรขาดทุนระบบเดิมพัน</div>
+            <div class="sim-desc-text">จำลองหลายพันมือ เปรียบเทียบเส้นกำไรขาดทุนระยะยาวของระบบ Martingale / Paroli / D'Alembert เพื่อหากลยุทธ์ที่เหมาะสม</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>Paroli 下注系統</li><li>D'Alembert 下注系統</li><li>自訂策略規則建立</li><li>策略匯出功能</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ระบบเดิมพัน Paroli</li><li>ระบบเดิมพัน D'Alembert</li><li>สร้างกฎกลยุทธ์เอง</li><li>ฟังก์ชันส่งออกกลยุทธ์</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>模擬引擎（數千手）</li><li>Martingale 下注模擬</li><li>勝負統計視覺化</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>เครื่องจำลอง (หลายพันมือ)</li><li>จำลอง Martingale</li><li>แสดงผลสถิติชนะ/แพ้</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Paroli 下注系統</li><li>D'Alembert 下注系統</li><li>自訂策略規則建立</li><li>策略匯出功能</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ระบบเดิมพัน Paroli</li><li>ระบบเดิมพัน D'Alembert</li><li>สร้างกฎกลยุทธ์เอง</li><li>ฟังก์ชันส่งออกกลยุทธ์</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/my-blackjack-strategy/id6480580810" target="_blank">App Store ↗</a></td>
       </tr>
 
-      <!-- 11 -->
+      <!-- 11 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">11</span></td>
         <td><div class="app-name">Steve's Blackjack Trainer Pro</div></td>
@@ -543,26 +443,28 @@
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-pc">PC</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $2.99</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>模擬引擎（數千手自動執行）</li><li>Martingale 下注模擬測試</li><li>基本策略訓練</li><li>即時統計（勝率／損益）</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (รันหลายพันมืออัตโนมัติ)</li><li>ทดสอบจำลอง Martingale</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>สถิติแบบเรียลไทม์ (อัตราชนะ/กำไรขาดทุน)</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">Martingale 下注趨勢</div>
+            <div class="sim-desc-text">自動執行數千手，觀察 Martingale 下注系統在不同起始金額下的勝負分布、最大連輸次數與資金消耗趨勢。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">แนวโน้ม Martingale</div>
+            <div class="sim-desc-text">รันอัตโนมัติหลายพันมือ สังเกตการกระจายผลชนะ/แพ้ จำนวนแพ้ต่อเนื่องสูงสุด และแนวโน้มการสูญเสียทุนของระบบ Martingale</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>Wong In/Out 策略</li><li>Arcade 闖關遊戲模式</li><li>牌靴可稽核功能</li><li>Steam（PC）同步上架</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>กลยุทธ์ Wong In/Out</li><li>โหมดเกม Arcade</li><li>ฟังก์ชัน Audit สำรับไพ่</li><li>วางจำหน่ายบน Steam (PC) พร้อมกัน</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>模擬引擎（數千手自動執行）</li><li>Martingale 下注模擬測試</li><li>基本策略訓練</li><li>即時統計（勝率／損益）</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (รันหลายพันมืออัตโนมัติ)</li><li>ทดสอบจำลอง Martingale</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>สถิติแบบเรียลไทม์ (อัตราชนะ/กำไรขาดทุน)</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Wong In/Out 策略</li><li>Arcade 闖關遊戲模式</li><li>牌靴可稽核功能</li><li>Steam（PC）同步上架</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>กลยุทธ์ Wong In/Out</li><li>โหมดเกม Arcade</li><li>ฟังก์ชัน Audit สำรับไพ่</li><li>วางจำหน่ายบน Steam (PC) พร้อมกัน</li></ul>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/steves-blackjack-trainer-pro/id6737786146" target="_blank">App Store ↗</a></td>
       </tr>
 
-      <!-- 12 -->
+      <!-- 12 ✅ sim -->
       <tr data-platform="android" class="sim-yes">
         <td><span style="color:var(--ink-dim)">12</span></td>
         <td><div class="app-name">Blackjack All-In-One Trainer</div></td>
@@ -570,21 +472,23 @@
         <td><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + Pro</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>模擬引擎（數百萬手）</li><li>基本策略訓練</li><li>規則自訂</li><li>局數統計</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (หลายล้านมือ)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติรอบการเล่น</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">House Edge 計算</div>
+            <div class="sim-desc-text">模擬數百萬手，計算不同規則組合下的 House Edge %，即時顯示賭場優勢供玩家比較。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">คำนวณ House Edge</div>
+            <div class="sim-desc-text">จำลองหลายล้านมือ คำนวณ House Edge % ภายใต้กฎต่างๆ แสดงผลข้อได้เปรียบของบ้านแบบเรียลไทม์</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>策略索引圖表（Index Charts）</li><li>House Edge 即時顯示</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>แผนภูมิดัชนีกลยุทธ์ (Index Charts)</li><li>แสดง House Edge แบบเรียลไทม์</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>模擬引擎（數百萬手）</li><li>基本策略訓練</li><li>規則自訂</li><li>局數統計</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (หลายล้านมือ)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติรอบการเล่น</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>策略索引圖表（Index Charts）</li><li>House Edge 即時顯示</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>แผนภูมิดัชนีกลยุทธ์ (Index Charts)</li><li>แสดง House Edge แบบเรียลไทม์</li></ul>
         </td>
         <td><a class="link-btn" href="https://play.google.com/store/apps/details?id=blackjack.allin1.com" target="_blank">Google Play ↗</a></td>
       </tr>
@@ -597,21 +501,14 @@
         <td><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $5.99</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌系統</li><li>RC / TC 即時顯示</li><li>下注倍率建議</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ระบบนับไพ่ Hi-Lo</li><li>แสดง RC / TC แบบเรียลไทม์</li><li>คำแนะนำอัตราการวางเดิมพัน</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌系統</li><li>RC / TC 即時顯示</li><li>下注倍率建議</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ระบบนับไพ่ Hi-Lo</li><li>แสดง RC / TC แบบเรียลไทม์</li><li>คำแนะนำอัตราการวางเดิมพัน</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li><strong>7種算牌系統</strong>（KO、ReKO、Hi-Opt II、Omega II、Zen、Wong Halves）</li><li>即時 House Edge 計算（隨RC值動態變動）</li><li>Ace 側記牌面板</li><li>發牌歷程＋單步撤銷</li><li>隱私優先設計（無需帳號）</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li><strong>7 ระบบนับไพ่</strong> (KO, ReKO, Hi-Opt II, Omega II, Zen, Wong Halves)</li><li>คำนวณ House Edge แบบเรียลไทม์ (เปลี่ยนตาม RC)</li><li>แผง Ace Side Count</li><li>ประวัติการแจกไพ่ + ยกเลิกทีละขั้น</li><li>ออกแบบเน้นความเป็นส่วนตัว (ไม่ต้องสมัครบัญชี)</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>7種算牌系統</strong>（KO、ReKO、Hi-Opt II、Omega II、Zen、Wong Halves）</li><li>即時 House Edge 計算（隨RC值動態變動）</li><li>Ace 側記牌面板</li><li>發牌歷程＋單步撤銷</li><li>隱私優先設計（無需帳號）</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>7 ระบบนับไพ่</strong> (KO, ReKO, Hi-Opt II, Omega II, Zen, Wong Halves)</li><li>คำนวณ House Edge แบบเรียลไทม์ (เปลี่ยนตาม RC)</li><li>แผง Ace Side Count</li><li>ประวัติการแจกไพ่ + ยกเลิกทีละขั้น</li><li>ออกแบบเน้นความเป็นส่วนตัว (ไม่ต้องสมัครบัญชี)</li></ul>
         </td>
         <td><a class="link-btn" href="https://blackjackcounter.app/" target="_blank">官網 ↗</a></td>
       </tr>
@@ -624,26 +521,19 @@
         <td><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>基本策略訓練</li><li>規則自訂</li><li>局數統計（勝率／平手／爆牌）</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติ (อัตราชนะ/เสมอ/แตก)</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>基本策略訓練</li><li>規則自訂</li><li>局數統計（勝率／平手／爆牌）</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li><li>สถิติ (อัตราชนะ/เสมอ/แตก)</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>選擇性弱項手牌練習（只練最差牌型）</li><li>完整發牌歷程記錄</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ฝึกไพ่ที่อ่อนแอเป็นพิเศษ (เลือกฝึกเฉพาะไพ่แย่ที่สุด)</li><li>บันทึกประวัติการแจกไพ่ครบถ้วน</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>選擇性弱項手牌練習（只練最差牌型）</li><li>完整發牌歷程記錄</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ฝึกไพ่ที่อ่อนแอเป็นพิเศษ (เลือกฝึกเฉพาะไพ่แย่ที่สุด)</li><li>บันทึกประวัติการแจกไพ่ครบถ้วน</li></ul>
         </td>
         <td><a class="link-btn" href="https://play.google.com/store/apps/details?id=com.blackjack_ace.blackjackace" target="_blank">Google Play ↗</a></td>
       </tr>
 
-      <!-- 15 -->
+      <!-- 15 ✅ sim -->
       <tr data-platform="pc" class="sim-yes">
         <td><span style="color:var(--ink-dim)">15</span></td>
         <td><div class="app-name">Casino Vérité (CVBJ/CVCX/CVData)</div></td>
@@ -651,26 +541,28 @@
         <td><span class="platform-tag tag-pc">Windows</span></td>
         <td><span class="price-tag">$115–$250</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌系統</li><li>模擬引擎（<strong>數十億手，業界最強</strong>）</li><li>基本策略訓練</li><li>規則自訂（牌靴／H17/S17／DAS）</li><li>下注倍率設定</li><li>詳細統計報告</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ระบบนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (<strong>หลายพันล้านมือ ดีที่สุดในวงการ</strong>)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ (สำรับ / H17/S17 / DAS)</li><li>ตั้งค่าอัตราการวางเดิมพัน</li><li>รายงานสถิติโดยละเอียด</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">業界最全面</div>
+            <div class="sim-desc-text">數十億手模擬，同時涵蓋：① 各算牌系統 EV% ② 下注倍率最佳化 ③ 破產風險（Risk of Ruin）④ Kelly Criterion 最適下注額 ⑤ 250,000 組預載場景。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">ครอบคลุมที่สุดในวงการ</div>
+            <div class="sim-desc-text">จำลองหลายพันล้านมือ ครอบคลุม: ① EV% ของระบบนับไพ่ ② ปรับอัตราเดิมพันให้เหมาะสม ③ ความเสี่ยงล้มละลาย (RoR) ④ Kelly Criterion ⑤ 250,000 ชุดสำเร็จรูป</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li><strong>20+種算牌系統</strong></li><li><strong>1,800+真實賭場規則資料庫</strong></li><li>破產風險計算 Risk of Ruin</li><li>Kelly Criterion 最佳下注計算</li><li>洗牌追蹤 Shuffle Tracking</li><li>Ace 預測技術</li><li>底牌窺視策略 Hole Card</li><li>500+遊戲參數自訂</li><li>250,000組預載模擬（CVCX）</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li><strong>20+ ระบบนับไพ่</strong></li><li><strong>ฐานข้อมูลกฎคาสิโนจริง 1,800+ แห่ง</strong></li><li>คำนวณความเสี่ยงล้มละลาย Risk of Ruin</li><li>คำนวณเดิมพันเหมาะสมที่สุด Kelly Criterion</li><li>ติดตามการสับไพ่ Shuffle Tracking</li><li>เทคนิคทำนาย Ace</li><li>กลยุทธ์มองไพ่หน้าคว่ำ Hole Card</li><li>ปรับแต่งพารามิเตอร์เกม 500+ รายการ</li><li>โหลดล่วงหน้า 250,000 ชุดการจำลอง (CVCX)</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌系統</li><li>模擬引擎（<strong>數十億手，業界最強</strong>）</li><li>基本策略訓練</li><li>規則自訂（牌靴／H17/S17／DAS）</li><li>下注倍率設定</li><li>詳細統計報告</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ระบบนับไพ่ Hi-Lo</li><li>เครื่องจำลอง (<strong>หลายพันล้านมือ ดีที่สุดในวงการ</strong>)</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ (สำรับ / H17/S17 / DAS)</li><li>ตั้งค่าอัตราการวางเดิมพัน</li><li>รายงานสถิติโดยละเอียด</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>20+種算牌系統</strong></li><li><strong>1,800+真實賭場規則資料庫</strong></li><li>破產風險計算 Risk of Ruin</li><li>Kelly Criterion 最佳下注計算</li><li>洗牌追蹤 Shuffle Tracking</li><li>Ace 預測技術</li><li>底牌窺視策略 Hole Card</li><li>500+遊戲參數自訂</li><li>250,000組預載模擬（CVCX）</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>20+ ระบบนับไพ่</strong></li><li><strong>ฐานข้อมูลกฎคาสิโนจริง 1,800+ แห่ง</strong></li><li>คำนวณความเสี่ยงล้มละลาย Risk of Ruin</li><li>คำนวณเดิมพันเหมาะสมที่สุด Kelly Criterion</li><li>ติดตามการสับไพ่ Shuffle Tracking</li><li>เทคนิคทำนาย Ace</li><li>กลยุทธ์มองไพ่หน้าคว่ำ Hole Card</li><li>ปรับแต่งพารามิเตอร์เกม 500+ รายการ</li><li>โหลดล่วงหน้า 250,000 ชุดการจำลอง (CVCX)</li></ul>
         </td>
         <td><a class="link-btn" href="https://www.qfit.com/orders.htm" target="_blank">官網 ↗</a></td>
       </tr>
 
-      <!-- 16 -->
+      <!-- 16 ✅ sim -->
       <tr data-platform="pc" class="sim-yes">
         <td><span style="color:var(--ink-dim)">16</span></td>
         <td><div class="app-name">DeepNet Blackjack Suite</div></td>
@@ -678,21 +570,23 @@
         <td><span class="platform-tag tag-pc">Windows</span></td>
         <td><span class="price-tag">$40–$65</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>算牌系統訓練</li><li>基本策略訓練</li><li>模擬引擎（數百萬手）</li><li>統計報告</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกระบบนับไพ่</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>เครื่องจำลอง (หลายล้านมือ)</li><li>รายงานสถิติ</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">算牌系統 EV 分析</div>
+            <div class="sim-desc-text">模擬數百萬手，分析不同算牌系統與基本策略組合的長期期望值（EV%），並計算破產風險與 Kelly 最適下注。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">วิเคราะห์ EV ระบบนับไพ่</div>
+            <div class="sim-desc-text">จำลองหลายล้านมือ วิเคราะห์ EV% ระยะยาวของระบบนับไพ่และกลยุทธ์พื้นฐาน พร้อมคำนวณความเสี่ยงล้มละลายและ Kelly Criterion</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>破產風險計算 Risk of Ruin</li><li>Kelly Criterion 下注計算</li><li>3種學習模式（Drill / Table / Memorize）</li><li>模組化購買（按需分開買）</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>คำนวณความเสี่ยงล้มละลาย Risk of Ruin</li><li>คำนวณเดิมพัน Kelly Criterion</li><li>3 โหมดการเรียนรู้ (Drill / Table / Memorize)</li><li>ซื้อแยกแบบโมดูล (ตามที่ต้องการ)</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>算牌系統訓練</li><li>基本策略訓練</li><li>模擬引擎（數百萬手）</li><li>統計報告</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกระบบนับไพ่</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>เครื่องจำลอง (หลายล้านมือ)</li><li>รายงานสถิติ</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>破產風險計算 Risk of Ruin</li><li>Kelly Criterion 下注計算</li><li>3種學習模式（Drill / Table / Memorize）</li><li>模組化購買（按需分開買）</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>คำนวณความเสี่ยงล้มละลาย Risk of Ruin</li><li>คำนวณเดิมพัน Kelly Criterion</li><li>3 โหมดการเรียนรู้ (Drill / Table / Memorize)</li><li>ซื้อแยกแบบโมดูล (ตามที่ต้องการ)</li></ul>
         </td>
         <td><a class="link-btn" href="https://www.deepnettech.com/blackjack.html" target="_blank">官網 ↗</a></td>
       </tr>
@@ -705,26 +599,19 @@
         <td><span class="platform-tag tag-pc">Steam</span></td>
         <td><span class="price-tag">$5</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>基本策略訓練</li><li>規則自訂（1–8副牌、H17/S17）</li><li>統計追蹤</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ (1–8 สำรับ, H17/S17)</li><li>ติดตามสถิติ</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>基本策略訓練</li><li>規則自訂（1–8副牌、H17/S17）</li><li>統計追蹤</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ (1–8 สำรับ, H17/S17)</li><li>ติดตามสถิติ</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>生存模式（Survival Mode）</li><li>跨平台（Win / Mac / Linux）</li><li>無需帳號登入</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>Survival Mode โหมดเอาตัวรอด</li><li>รองรับข้ามแพลตฟอร์ม (Win / Mac / Linux)</li><li>ไม่ต้องล็อกอินบัญชี</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>生存模式（Survival Mode）</li><li>跨平台（Win / Mac / Linux）</li><li>無需帳號登入</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>Survival Mode โหมดเอาตัวรอด</li><li>รองรับข้ามแพลตฟอร์ม (Win / Mac / Linux)</li><li>ไม่ต้องล็อกอินบัญชี</li></ul>
         </td>
         <td><a class="link-btn" href="https://store.steampowered.com/app/3974240/Blackjack_Trainer/" target="_blank">Steam ↗</a></td>
       </tr>
 
-      <!-- 18 -->
+      <!-- 18 ✅ sim -->
       <tr data-platform="pc" class="sim-yes">
         <td><span style="color:var(--ink-dim)">18</span></td>
         <td><div class="app-name">Jester Street: Card Counting Trainer</div></td>
@@ -732,21 +619,23 @@
         <td><span class="platform-tag tag-pc">Steam</span></td>
         <td><span class="price-tag">$6</span></td>
         <td class="center"><span class="sim-yes-icon">✅</span></td>
-        <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>Hi-Lo 算牌訓練</li><li>基本策略圖表</li><li>模擬引擎（Simulator 2100，自動執行數百局）</li><li>規則自訂（1–8副牌）</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกนับไพ่ Hi-Lo</li><li>แผนภูมิกลยุทธ์พื้นฐาน</li><li>เครื่องจำลอง (Simulator 2100, รันอัตโนมัติหลายร้อยรอบ)</li><li>ปรับแต่งกฎ (1–8 สำรับ)</li>
-          </ul>
+        <td class="sim-desc">
+          <div class="lang-content active" data-lang="zh">
+            <div class="sim-desc-tag">勝負分布觀察</div>
+            <div class="sim-desc-text">Simulator 2100 自動執行數百局，觀察勝負分布趨勢，但無策略 EV% 分析或下注系統比較。</div>
+          </div>
+          <div class="lang-content" data-lang="th">
+            <div class="sim-desc-tag">สังเกตการกระจายผล</div>
+            <div class="sim-desc-text">Simulator 2100 รันอัตโนมัติหลายร้อยรอบ สังเกตแนวโน้มการกระจายผลชนะ/แพ้ แต่ไม่มีการวิเคราะห์ EV% หรือเปรียบเทียบระบบเดิมพัน</div>
+          </div>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>KO 算牌系統</li><li>簡體中文支援</li><li>獨特敘事場景（洗衣店背景）</li><li>PC 平台發行（已停更）</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>ระบบนับไพ่ KO</li><li>รองรับภาษาจีนกลาง</li><li>ฉากเล่าเรื่องเฉพาะตัว (พื้นหลังร้านซักผ้า)</li><li>จำหน่ายบน PC (หยุดอัปเดตแล้ว)</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>Hi-Lo 算牌訓練</li><li>基本策略圖表</li><li>模擬引擎（Simulator 2100，自動執行數百局）</li><li>規則自訂（1–8副牌）</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกนับไพ่ Hi-Lo</li><li>แผนภูมิกลยุทธ์พื้นฐาน</li><li>เครื่องจำลอง (Simulator 2100, รันอัตโนมัติหลายร้อยรอบ)</li><li>ปรับแต่งกฎ (1–8 สำรับ)</li></ul>
+        </td>
+        <td>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>KO 算牌系統</li><li>簡體中文支援</li><li>獨特敘事場景（洗衣店背景）</li><li>PC 平台發行（已停更）</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>ระบบนับไพ่ KO</li><li>รองรับภาษาจีนกลาง</li><li>ฉากเล่าเรื่องเฉพาะตัว (พื้นหลังร้านซักผ้า)</li><li>จำหน่ายบน PC (หยุดอัปเดตแล้ว)</li></ul>
         </td>
         <td><a class="link-btn" href="https://store.steampowered.com/app/1828070/Jester_Street__Card_Counting_Trainer/" target="_blank">Steam ↗</a></td>
       </tr>
@@ -759,21 +648,14 @@
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>基本策略訓練</li><li>規則自訂</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>基本策略訓練</li><li>規則自訂</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกกลยุทธ์พื้นฐาน</li><li>ปรับแต่งกฎ</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>策略小抄參考頁</li><li>瀏覽器免安裝直接使用</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>หน้าอ้างอิงกลยุทธ์ย่อ</li><li>ใช้งานได้ทันทีผ่านเบราว์เซอร์ ไม่ต้องติดตั้ง</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>策略小抄參考頁</li><li>瀏覽器免安裝直接使用</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>หน้าอ้างอิงกลยุทธ์ย่อ</li><li>ใช้งานได้ทันทีผ่านเบราว์เซอร์ ไม่ต้องติดตั้ง</li></ul>
         </td>
         <td><a class="link-btn" href="https://blackjack.training/" target="_blank">網站 ↗</a></td>
       </tr>
@@ -786,21 +668,14 @@
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>基本策略訓練（Hard / Soft / Pairs）</li><li>答題準確率追蹤</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกกลยุทธ์พื้นฐาน (Hard / Soft / Pairs)</li><li>ติดตามความแม่นยำในการตอบ</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>基本策略訓練（Hard / Soft / Pairs）</li><li>答題準確率追蹤</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกกลยุทธ์พื้นฐาน (Hard / Soft / Pairs)</li><li>ติดตามความแม่นยำในการตอบ</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>ENHC / NHPC 兩種遊戲規則變體</li><li>錯誤題自動重播機制</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>กฎเกมสองรูปแบบ ENHC / NHPC</li><li>ระบบเล่นซ้ำโจทย์ที่ผิดอัตโนมัติ</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>ENHC / NHPC 兩種遊戲規則變體</li><li>錯誤題自動重播機制</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>กฎเกมสองรูปแบบ ENHC / NHPC</li><li>ระบบเล่นซ้ำโจทย์ที่ผิดอัตโนมัติ</li></ul>
         </td>
         <td><a class="link-btn" href="https://basicstrategy.app/" target="_blank">網站 ↗</a></td>
       </tr>
@@ -813,21 +688,14 @@
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>基本策略訓練</li><li>算牌入門教學</li><li>多種規則變體</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>ฝึกกลยุทธ์พื้นฐาน</li><li>บทเรียนนับไพ่เบื้องต้น</li><li>กฎเกมหลายรูปแบบ</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>基本策略訓練</li><li>算牌入門教學</li><li>多種規則變體</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>ฝึกกลยุทธ์พื้นฐาน</li><li>บทเรียนนับไพ่เบื้องต้น</li><li>กฎเกมหลายรูปแบบ</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>完整數學 EV 期望值分析（各手牌精確計算）</li><li>業界最高公信力學術資源</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>วิเคราะห์ EV ค่าคาดหวังทางคณิตศาสตร์ครบถ้วน (คำนวณแม่นยำทุกมือ)</li><li>แหล่งข้อมูลวิชาการที่น่าเชื่อถือที่สุดในวงการ</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>完整數學 EV 期望值分析（各手牌精確計算）</li><li>業界最高公信力學術資源</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>วิเคราะห์ EV ค่าคาดหวังทางคณิตศาสตร์ครบถ้วน (คำนวณแม่นยำทุกมือ)</li><li>แหล่งข้อมูลวิชาการที่น่าเชื่อถือที่สุดในวงการ</li></ul>
         </td>
         <td><a class="link-btn" href="https://wizardofodds.com" target="_blank">網站 ↗</a></td>
       </tr>
@@ -840,21 +708,14 @@
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
         <td class="center"><span class="sim-no-icon">✗</span></td>
+        <td class="sim-desc center"><span class="sim-none-dash">—</span></td>
         <td>
-          <ul class="feature-list lang-content active" data-lang="zh">
-            <li>多語言介面（25種）</li><li>規則自訂</li>
-          </ul>
-          <ul class="feature-list lang-content" data-lang="th">
-            <li>อินเทอร์เฟซหลายภาษา (25 ภาษา)</li><li>ปรับแต่งกฎ</li>
-          </ul>
+          <ul class="feature-list lang-content active" data-lang="zh"><li>多語言介面（25種）</li><li>規則自訂</li></ul>
+          <ul class="feature-list lang-content" data-lang="th"><li>อินเทอร์เฟซหลายภาษา (25 ภาษา)</li><li>ปรับแต่งกฎ</li></ul>
         </td>
         <td>
-          <ul class="feature-list other-list lang-content active" data-lang="zh">
-            <li>Double Exposure / Switch / Spanish 21 等變體玩法</li><li>純遊玩，無訓練功能</li>
-          </ul>
-          <ul class="feature-list other-list lang-content" data-lang="th">
-            <li>รูปแบบเกม Double Exposure / Switch / Spanish 21</li><li>เล่นเพื่อสนุก ไม่มีฟีเจอร์ฝึกซ้อม</li>
-          </ul>
+          <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Double Exposure / Switch / Spanish 21 等變體玩法</li><li>純遊玩，無訓練功能</li></ul>
+          <ul class="feature-list other-list lang-content" data-lang="th"><li>รูปแบบเกม Double Exposure / Switch / Spanish 21</li><li>เล่นเพื่อสนุก ไม่มีฟีเจอร์ฝึกซ้อม</li></ul>
         </td>
         <td><a class="link-btn" href="https://www.blackjacksimulator.net/" target="_blank">網站 ↗</a></td>
       </tr>
@@ -867,37 +728,30 @@
 <div class="advantage-section">
   <h2 data-zh="♠ BJ Analyzer 的市場差異化優勢" data-th="♠ ความได้เปรียบเชิงตลาดของ BJ Analyzer">♠ BJ Analyzer 的市場差異化優勢</h2>
   <div class="advantage-grid">
-
     <div class="advantage-card highlight">
       <h3 data-zh="✅ 算牌 ＋ 模擬 ＋ 22語言 三合一" data-th="✅ นับไพ่ ＋ จำลอง ＋ 22 ภาษา ในแอปเดียว">✅ 算牌 ＋ 模擬 ＋ 22語言 三合一</h3>
       <p data-zh="全市場 22 個競品中，沒有任何一個同時具備完整算牌訓練、策略模擬引擎、和 22 種語言支援。這個組合目前是市場空白。" data-th="จากคู่แข่ง 22 รายในตลาด ไม่มีรายใดที่มีทั้งการฝึกนับไพ่แบบครบถ้วน เครื่องจำลองกลยุทธ์ และรองรับ 22 ภาษาพร้อมกัน ส่วนผสมนี้คือช่องว่างในตลาดที่ยังไม่มีใครเติมเต็ม">全市場 22 個競品中，沒有任何一個同時具備完整算牌訓練、策略模擬引擎、和 22 種語言支援。這個組合目前是市場空白。</p>
     </div>
-
+    <div class="advantage-card highlight">
+      <h3 data-zh="✅ 模擬內容最完整的行動端工具" data-th="✅ เครื่องมือมือถือที่มีเนื้อหาการจำลองครบถ้วนที่สุด">✅ 模擬內容最完整的行動端工具</h3>
+      <p data-zh="競品模擬只針對單一面向（House Edge 或 Martingale）。BJ Analyzer 同時模擬 Normal / Parlay / Martingale 三套策略的 EV% 熱力圖矩陣，是行動端唯一做到策略總表分析的工具。" data-th="คู่แข่งจำลองเพียงด้านเดียว (House Edge หรือ Martingale) BJ Analyzer จำลองกลยุทธ์ Normal / Parlay / Martingale พร้อมเมทริกซ์ความร้อน EV% ครบทั้งสามแบบ เป็นเครื่องมือมือถือเดียวที่ทำการวิเคราะห์ตารางกลยุทธ์รวม">競品模擬只針對單一面向（House Edge 或 Martingale）。BJ Analyzer 同時模擬 Normal / Parlay / Martingale 三套策略的 EV% 熱力圖矩陣，是行動端唯一做到策略總表分析的工具。</p>
+    </div>
     <div class="advantage-card highlight">
       <h3 data-zh="✅ Parlay 闖關下注模式" data-th="✅ โหมดเดิมพัน Parlay แบบด่าน">✅ Parlay 闖關下注模式</h3>
       <p data-zh="所有競品均無此功能。Parlay 連贏序列管理是 BJ Analyzer 獨有的設計，沒有直接競品。" data-th="คู่แข่งทุกรายไม่มีฟีเจอร์นี้ การจัดการลำดับชนะต่อเนื่องแบบ Parlay คือการออกแบบเฉพาะของ BJ Analyzer ที่ไม่มีคู่แข่งโดยตรง">所有競品均無此功能。Parlay 連贏序列管理是 BJ Analyzer 獨有的設計，沒有直接競品。</p>
     </div>
-
-    <div class="advantage-card highlight">
-      <h3 data-zh="✅ 多元下注策略同時比較" data-th="✅ เปรียบเทียบกลยุทธ์เดิมพันหลายแบบพร้อมกัน">✅ 多元下注策略同時比較</h3>
-      <p data-zh="能同時模擬並比較 Normal / Parlay / Martingale 三種下注策略的行動端工具，市場上目前不存在。" data-th="เครื่องมือบนมือถือที่จำลองและเปรียบเทียบกลยุทธ์ Normal / Parlay / Martingale ทั้งสามแบบพร้อมกัน ยังไม่มีในตลาด">能同時模擬並比較 Normal / Parlay / Martingale 三種下注策略的行動端工具，市場上目前不存在。</p>
-    </div>
-
     <div class="advantage-card">
       <h3 data-zh="🟡 行動端模擬引擎稀缺" data-th="🟡 เครื่องจำลองบนมือถือหายาก">🟡 行動端模擬引擎稀缺</h3>
-      <p data-zh="iOS / Android 有模擬引擎的競品只有 4 個，且規模與功能深度均不如桌面版。BJ Analyzer 填補了行動端高品質模擬的市場空缺。" data-th="คู่แข่ง iOS / Android ที่มีเครื่องจำลองมีเพียง 4 ราย และยังด้อยกว่าเวอร์ชันเดสก์ท็อปทั้งในด้านขนาดและความลึก BJ Analyzer เติมเต็มช่องว่างการจำลองคุณภาพสูงบนมือถือ">iOS / Android 有模擬引擎的競品只有 4 個，且規模與功能深度均不如桌面版。BJ Analyzer 填補了行動端高品質模擬的市場空缺。</p>
+      <p data-zh="iOS / Android 有模擬引擎的競品只有 4 個，且各自只模擬單一面向。BJ Analyzer 填補了行動端高品質、多面向模擬的市場空缺。" data-th="คู่แข่ง iOS / Android ที่มีเครื่องจำลองมีเพียง 4 ราย และแต่ละรายจำลองเพียงด้านเดียว BJ Analyzer เติมเต็มช่องว่างการจำลองคุณภาพสูงแบบหลายมิติบนมือถือ">iOS / Android 有模擬引擎的競品只有 4 個，且各自只模擬單一面向。BJ Analyzer 填補了行動端高品質、多面向模擬的市場空缺。</p>
     </div>
-
     <div class="advantage-card">
       <h3 data-zh="🟡 True Count 為未來擴充方向" data-th="🟡 True Count คือทิศทางขยายในอนาคต">🟡 True Count 為未來擴充方向</h3>
       <p data-zh="主要競品（BJA、Double Down 系列）均提供 True Count 換算訓練，這是進階算牌的關鍵步驟，可考慮未來加入。" data-th="คู่แข่งหลัก (BJA, Double Down Series) มีการฝึกแปลง True Count ซึ่งเป็นขั้นตอนสำคัญของการนับไพ่ขั้นสูง ควรพิจารณาเพิ่มในอนาคต">主要競品（BJA、Double Down 系列）均提供 True Count 換算訓練，這是進階算牌的關鍵步驟，可考慮未來加入。</p>
     </div>
-
     <div class="advantage-card">
       <h3 data-zh="🟡 Risk of Ruin 行動版空白" data-th="🟡 Risk of Ruin เวอร์ชันมือถือยังว่างอยู่">🟡 Risk of Ruin 行動版空白</h3>
       <p data-zh="破產風險計算目前只存在於 $125–$250 的桌面軟體。若加入行動版，將是高端用戶的強力吸引點。" data-th="การคำนวณความเสี่ยงล้มละลายมีเฉพาะในซอฟต์แวร์เดสก์ท็อปราคา $125–$250 หากเพิ่มในเวอร์ชันมือถือจะดึงดูดผู้ใช้ระดับสูงได้อย่างมาก">破產風險計算目前只存在於 $125–$250 的桌面軟體。若加入行動版，將是高端用戶的強力吸引點。</p>
     </div>
-
   </div>
 </div>
 
@@ -913,19 +767,12 @@
   function setLang(lang) {
     currentLang = lang;
     document.documentElement.lang = lang === 'zh' ? 'zh-TW' : 'th';
-
-    // Switch data-zh / data-th elements (use innerHTML to support <strong> etc.)
     document.querySelectorAll('[data-zh]').forEach(el => {
       el.innerHTML = el.dataset[lang] || el.dataset.zh;
     });
-
-    // Switch feature list ULs
     document.querySelectorAll('.lang-content').forEach(el => {
-      const isActive = el.dataset.lang === lang;
-      el.classList.toggle('active', isActive);
+      el.classList.toggle('active', el.dataset.lang === lang);
     });
-
-    // Update toggle button states
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
@@ -944,8 +791,7 @@
   function filterPlatform(p, btn) {
     currentPlatform = p;
     document.querySelectorAll('.controls .filter-btn').forEach(b => {
-      const isSim = b.dataset.zh && b.dataset.zh.includes('模擬');
-      if (!isSim) b.classList.remove('active');
+      if (!b.dataset.zh || !b.dataset.zh.includes('模擬')) b.classList.remove('active');
     });
     btn.classList.add('active');
     applyFilters();
@@ -957,6 +803,5 @@
     applyFilters();
   }
 </script>
-
 </body>
 </html>
