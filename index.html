@@ -146,6 +146,22 @@
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: rgba(232,197,71,0.3); border-radius: 3px; }
+
+    /* ── Ratings Column ── */
+    .rating-wrap { text-align: center; }
+    .rating-score { font-size: 14px; font-weight: 800; color: var(--gold); font-family: var(--font-mono); line-height: 1.3; }
+    .rating-count { display: block; font-size: 10px; color: var(--ink-dim); margin-top: 2px; }
+    .rating-src-tag {
+      display: inline-block; margin-top: 4px; padding: 2px 7px;
+      border-radius: 4px; font-size: 9px; font-weight: 700; font-family: var(--font-mono); letter-spacing: 0.3px;
+    }
+    .rating-src-ios     { background: rgba(34,211,238,0.12); color: var(--cyan);  border: 1px solid rgba(34,211,238,0.25); }
+    .rating-src-android { background: rgba(34,197,94,0.12);  color: var(--green); border: 1px solid rgba(34,197,94,0.25); }
+    .rating-src-steam   { background: rgba(168,85,247,0.12); color: #c084fc;      border: 1px solid rgba(168,85,247,0.25); }
+    .rating-steam-label { font-size: 11px; font-weight: 700; }
+    .rating-steam-pos   { color: var(--green); }
+    .rating-steam-mix   { color: #fbbf24; }
+    th.rating-th { min-width: 90px; }
   </style>
 </head>
 <body>
@@ -203,6 +219,7 @@
         <th data-zh="模擬內容（模擬什麼）" data-th="เนื้อหาการจำลอง (จำลองอะไร)">模擬內容（模擬什麼）</th>
         <th data-zh="相似功能（與 BJ Analyzer 重疊）" data-th="ฟีเจอร์คล้ายกัน (ซ้อนทับกับ BJ Analyzer)">相似功能（與 BJ Analyzer 重疊）</th>
         <th data-zh="其他功能（競品有，BJ Analyzer 沒有）" data-th="ฟีเจอร์อื่น (คู่แข่งมี, BJ Analyzer ไม่มี)">其他功能（競品有，BJ Analyzer 沒有）</th>
+        <th class="center rating-th" data-zh="商店評分 ①" data-th="คะแนนสโตร์ ①">商店評分 ①</th>
         <th data-zh="連結" data-th="ลิงก์">連結</th>
       </tr>
     </thead>
@@ -225,6 +242,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>True Count 換算訓練</li><li>策略偏差表 Deviation Charts</li><li>雙手同桌同時遊玩</li><li>職業牌手設計結構化課程</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ฝึกแปลง True Count</li><li>ตาราง Deviation Charts</li><li>เล่นพร้อมกันสองมือบนโต๊ะเดียว</li><li>หลักสูตรโครงสร้างโดยนักไพ่มืออาชีพ</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.7</div>
+            <span class="rating-count" data-zh="1,200+ 評價" data-th="1,200+ คะแนน">1,200+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-card-counting-pro/id388857410" target="_blank">App Store ↗</a></td>
       </tr>
 
@@ -245,6 +269,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>弱點自動偵測（記錄最常出錯牌型並優先練習）</li><li>策略圖表依規則即時動態更新</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ตรวจจับจุดอ่อนอัตโนมัติ (บันทึกไพ่ที่ผิดพลาดบ่อยและฝึกก่อน)</li><li>แผนภูมิกลยุทธ์อัปเดตแบบเรียลไทม์ตามกฎ</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.4</div>
+            <span class="rating-count" data-zh="250+ 評價" data-th="250+ คะแนน">250+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-21-strategy-trainer/id597239290" target="_blank">App Store ↗</a></td>
       </tr>
 
@@ -264,6 +295,13 @@
         <td>
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>True Count 換算訓練</li><li>多玩家同桌模擬（1–5個位置）</li><li>荷官發牌速度調整</li><li>Mac 原生 App 支援</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ฝึกแปลง True Count</li><li>จำลองหลายผู้เล่นบนโต๊ะเดียว (1–5 ตำแหน่ง)</li><li>ปรับความเร็วการแจกไพ่ของดีลเลอร์</li><li>รองรับแอปดั้งเดิมของ Mac</li></ul>
+        </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.7</div>
+            <span class="rating-count" data-zh="50+ 評價" data-th="50+ คะแนน">50+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-hi-lo-card-counting/id1621861617" target="_blank">App Store ↗</a></td>
       </tr>
@@ -294,6 +332,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>KO / REKO / FELT 等額外算牌系統</li><li>True Count 換算測驗</li><li>策略偏差訓練</li><li>自訂算牌系統建立</li><li>Mac 原生 App 支援</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ระบบนับไพ่เพิ่มเติม เช่น KO / REKO / FELT</li><li>ทดสอบแปลง True Count</li><li>ฝึก Strategy Deviation</li><li>สร้างระบบนับไพ่เอง</li><li>รองรับแอปดั้งเดิมของ Mac</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.8</div>
+            <span class="rating-count" data-zh="35+ 評價" data-th="35+ คะแนน">35+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-card-counting-pro/id6505133534" target="_blank">App Store ↗</a></td>
       </tr>
 
@@ -314,6 +359,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>16種算牌系統</strong>（Hi-Opt I/II、KO、Omega-II、Red 7、Silver Fox、Zen、Wong Halves 等）</li><li>Beat the Clock 限時計數挑戰</li><li>Dealt Out 完整副牌計數訓練</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>16 ระบบนับไพ่</strong> (Hi-Opt I/II, KO, Omega-II, Red 7, Silver Fox, Zen, Wong Halves ฯลฯ)</li><li>ความท้าทายนับไพ่แบบจับเวลา Beat the Clock</li><li>ฝึกนับไพ่ครบชุด Dealt Out</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.8</div>
+            <span class="rating-count" data-zh="70+ 評價" data-th="70+ คะแนน">70+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/card-counting-coach/id1546423936" target="_blank">App Store ↗</a></td>
       </tr>
 
@@ -333,6 +385,13 @@
         <td>
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>9種算牌系統（KO、Omega II、Red 7、KISS III 等）</li><li>自訂算牌系統建立</li><li>語音旁白輔助訓練</li><li>Game Center 成就系統</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>9 ระบบนับไพ่ (KO, Omega II, Red 7, KISS III ฯลฯ)</li><li>สร้างระบบนับไพ่เอง</li><li>ผู้ช่วยเสียงบรรยาย</li><li>ระบบความสำเร็จ Game Center</li></ul>
+        </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.5</div>
+            <span class="rating-count" data-zh="200+ 評價" data-th="200+ คะแนน">200+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/card-counter/id293742180" target="_blank">App Store ↗</a></td>
       </tr>
@@ -363,6 +422,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>House Edge 勝率計算機</strong>（直接顯示賭場優勢%）</li><li>策略索引圖表（Index Charts）</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>เครื่องคำนวณ House Edge</strong> (แสดง % ข้อได้เปรียบของบ้านโดยตรง)</li><li>แผนภูมิดัชนีกลยุทธ์ (Index Charts)</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.5</div>
+            <span class="rating-count" data-zh="60+ 評價" data-th="60+ คะแนน">60+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-trainer-all-in-one/id1470754366" target="_blank">App Store ↗</a></td>
       </tr>
 
@@ -383,6 +449,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>智能自適應難度（AI依用戶表現即時調整）</li><li>Step-by-Step 結構化學習課程</li><li>訂閱制持續更新內容</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ปรับความยากอัจฉริยะ (AI ปรับตามผลการเล่นแบบเรียลไทม์)</li><li>หลักสูตรการเรียนรู้แบบทีละขั้นตอน</li><li>เนื้อหาอัปเดตต่อเนื่องแบบสมัครสมาชิก</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.7</div>
+            <span class="rating-count" data-zh="90+ 評價" data-th="90+ คะแนน">90+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/blackjack-trainer-card-counter/id6717589612" target="_blank">App Store ↗</a></td>
       </tr>
 
@@ -402,6 +475,13 @@
         <td>
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Learn Mode 遊玩時即時策略提示</li><li>個人化牌桌視覺外觀設計</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>Learn Mode คำแนะนำกลยุทธ์แบบเรียลไทม์ระหว่างเล่น</li><li>ออกแบบธีมโต๊ะส่วนตัว</li></ul>
+        </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.9</div>
+            <span class="rating-count" data-zh="25+ 評價" data-th="25+ คะแนน">25+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/nightcard-blackjack-trainer/id6738871313" target="_blank">App Store ↗</a></td>
       </tr>
@@ -432,6 +512,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Paroli 下注系統</li><li>D'Alembert 下注系統</li><li>自訂策略規則建立</li><li>策略匯出功能</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ระบบเดิมพัน Paroli</li><li>ระบบเดิมพัน D'Alembert</li><li>สร้างกฎกลยุทธ์เอง</li><li>ฟังก์ชันส่งออกกลยุทธ์</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.3</div>
+            <span class="rating-count" data-zh="12+ 評價" data-th="12+ คะแนน">12+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/my-blackjack-strategy/id6480580810" target="_blank">App Store ↗</a></td>
       </tr>
 
@@ -460,6 +547,13 @@
         <td>
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Wong In/Out 策略</li><li>Arcade 闖關遊戲模式</li><li>牌靴可稽核功能</li><li>Steam（PC）同步上架</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>กลยุทธ์ Wong In/Out</li><li>โหมดเกม Arcade</li><li>ฟังก์ชัน Audit สำรับไพ่</li><li>วางจำหน่ายบน Steam (PC) พร้อมกัน</li></ul>
+        </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.4</div>
+            <span class="rating-count" data-zh="15+ 評價" data-th="15+ คะแนน">15+ 評價</span>
+            <div><span class="rating-src-tag rating-src-ios">App Store</span></div>
+          </div>
         </td>
         <td><a class="link-btn" href="https://apps.apple.com/us/app/steves-blackjack-trainer-pro/id6737786146" target="_blank">App Store ↗</a></td>
       </tr>
@@ -490,6 +584,13 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>策略索引圖表（Index Charts）</li><li>House Edge 即時顯示</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>แผนภูมิดัชนีกลยุทธ์ (Index Charts)</li><li>แสดง House Edge แบบเรียลไทม์</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 4.4</div>
+            <span class="rating-count" data-zh="500+ 評價" data-th="500+ คะแนน">500+ 評價</span>
+            <div><span class="rating-src-tag rating-src-android">Google Play</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://play.google.com/store/apps/details?id=blackjack.allin1.com" target="_blank">Google Play ↗</a></td>
       </tr>
 
@@ -510,6 +611,7 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>7種算牌系統</strong>（KO、ReKO、Hi-Opt II、Omega II、Zen、Wong Halves）</li><li>即時 House Edge 計算（隨RC值動態變動）</li><li>Ace 側記牌面板</li><li>發牌歷程＋單步撤銷</li><li>隱私優先設計（無需帳號）</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>7 ระบบนับไพ่</strong> (KO, ReKO, Hi-Opt II, Omega II, Zen, Wong Halves)</li><li>คำนวณ House Edge แบบเรียลไทม์ (เปลี่ยนตาม RC)</li><li>แผง Ace Side Count</li><li>ประวัติการแจกไพ่ + ยกเลิกทีละขั้น</li><li>ออกแบบเน้นความเป็นส่วนตัว (ไม่ต้องสมัครบัญชี)</li></ul>
         </td>
+        <td class="center"><span class="sim-none-dash">—</span></td>
         <td><a class="link-btn" href="https://blackjackcounter.app/" target="_blank">官網 ↗</a></td>
       </tr>
 
@@ -529,6 +631,13 @@
         <td>
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>選擇性弱項手牌練習（只練最差牌型）</li><li>完整發牌歷程記錄</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ฝึกไพ่ที่อ่อนแอเป็นพิเศษ (เลือกฝึกเฉพาะไพ่แย่ที่สุด)</li><li>บันทึกประวัติการแจกไพ่ครบถ้วน</li></ul>
+        </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-score">★ 3.8</div>
+            <span class="rating-count" data-zh="120+ 評價" data-th="120+ คะแนน">120+ 評價</span>
+            <div><span class="rating-src-tag rating-src-android">Google Play</span></div>
+          </div>
         </td>
         <td><a class="link-btn" href="https://play.google.com/store/apps/details?id=com.blackjack_ace.blackjackace" target="_blank">Google Play ↗</a></td>
       </tr>
@@ -559,6 +668,7 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li><strong>20+種算牌系統</strong></li><li><strong>1,800+真實賭場規則資料庫</strong></li><li>破產風險計算 Risk of Ruin</li><li>Kelly Criterion 最佳下注計算</li><li>洗牌追蹤 Shuffle Tracking</li><li>Ace 預測技術</li><li>底牌窺視策略 Hole Card</li><li>500+遊戲參數自訂</li><li>250,000組預載模擬（CVCX）</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li><strong>20+ ระบบนับไพ่</strong></li><li><strong>ฐานข้อมูลกฎคาสิโนจริง 1,800+ แห่ง</strong></li><li>คำนวณความเสี่ยงล้มละลาย Risk of Ruin</li><li>คำนวณเดิมพันเหมาะสมที่สุด Kelly Criterion</li><li>ติดตามการสับไพ่ Shuffle Tracking</li><li>เทคนิคทำนาย Ace</li><li>กลยุทธ์มองไพ่หน้าคว่ำ Hole Card</li><li>ปรับแต่งพารามิเตอร์เกม 500+ รายการ</li><li>โหลดล่วงหน้า 250,000 ชุดการจำลอง (CVCX)</li></ul>
         </td>
+        <td class="center"><span class="sim-none-dash">—</span></td>
         <td><a class="link-btn" href="https://www.qfit.com/orders.htm" target="_blank">官網 ↗</a></td>
       </tr>
 
@@ -588,6 +698,7 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>破產風險計算 Risk of Ruin</li><li>Kelly Criterion 下注計算</li><li>3種學習模式（Drill / Table / Memorize）</li><li>模組化購買（按需分開買）</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>คำนวณความเสี่ยงล้มละลาย Risk of Ruin</li><li>คำนวณเดิมพัน Kelly Criterion</li><li>3 โหมดการเรียนรู้ (Drill / Table / Memorize)</li><li>ซื้อแยกแบบโมดูล (ตามที่ต้องการ)</li></ul>
         </td>
+        <td class="center"><span class="sim-none-dash">—</span></td>
         <td><a class="link-btn" href="https://www.deepnettech.com/blackjack.html" target="_blank">官網 ↗</a></td>
       </tr>
 
@@ -607,6 +718,12 @@
         <td>
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>生存模式（Survival Mode）</li><li>跨平台（Win / Mac / Linux）</li><li>無需帳號登入</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>Survival Mode โหมดเอาตัวรอด</li><li>รองรับข้ามแพลตฟอร์ม (Win / Mac / Linux)</li><li>ไม่ต้องล็อกอินบัญชี</li></ul>
+        </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-steam-label rating-steam-pos" data-zh="好評如潮" data-th="รีวิวดีมาก">好評如潮</div>
+            <div><span class="rating-src-tag rating-src-steam">Steam</span></div>
+          </div>
         </td>
         <td><a class="link-btn" href="https://store.steampowered.com/app/3974240/Blackjack_Trainer/" target="_blank">Steam ↗</a></td>
       </tr>
@@ -637,6 +754,12 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>KO 算牌系統</li><li>簡體中文支援</li><li>獨特敘事場景（洗衣店背景）</li><li>PC 平台發行（已停更）</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>ระบบนับไพ่ KO</li><li>รองรับภาษาจีนกลาง</li><li>ฉากเล่าเรื่องเฉพาะตัว (พื้นหลังร้านซักผ้า)</li><li>จำหน่ายบน PC (หยุดอัปเดตแล้ว)</li></ul>
         </td>
+        <td class="center">
+          <div class="rating-wrap">
+            <div class="rating-steam-label rating-steam-mix" data-zh="褒貶不一" data-th="รีวิวปนเปกัน">褒貶不一</div>
+            <div><span class="rating-src-tag rating-src-steam">Steam</span></div>
+          </div>
+        </td>
         <td><a class="link-btn" href="https://store.steampowered.com/app/1828070/Jester_Street__Card_Counting_Trainer/" target="_blank">Steam ↗</a></td>
       </tr>
 
@@ -657,6 +780,7 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>策略小抄參考頁</li><li>瀏覽器免安裝直接使用</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>หน้าอ้างอิงกลยุทธ์ย่อ</li><li>ใช้งานได้ทันทีผ่านเบราว์เซอร์ ไม่ต้องติดตั้ง</li></ul>
         </td>
+        <td class="center"><span class="sim-none-dash">—</span></td>
         <td><a class="link-btn" href="https://blackjack.training/" target="_blank">網站 ↗</a></td>
       </tr>
 
@@ -677,6 +801,7 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>ENHC / NHPC 兩種遊戲規則變體</li><li>錯誤題自動重播機制</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>กฎเกมสองรูปแบบ ENHC / NHPC</li><li>ระบบเล่นซ้ำโจทย์ที่ผิดอัตโนมัติ</li></ul>
         </td>
+        <td class="center"><span class="sim-none-dash">—</span></td>
         <td><a class="link-btn" href="https://basicstrategy.app/" target="_blank">網站 ↗</a></td>
       </tr>
 
@@ -697,6 +822,7 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>完整數學 EV 期望值分析（各手牌精確計算）</li><li>業界最高公信力學術資源</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>วิเคราะห์ EV ค่าคาดหวังทางคณิตศาสตร์ครบถ้วน (คำนวณแม่นยำทุกมือ)</li><li>แหล่งข้อมูลวิชาการที่น่าเชื่อถือที่สุดในวงการ</li></ul>
         </td>
+        <td class="center"><span class="sim-none-dash">—</span></td>
         <td><a class="link-btn" href="https://wizardofodds.com" target="_blank">網站 ↗</a></td>
       </tr>
 
@@ -717,6 +843,7 @@
           <ul class="feature-list other-list lang-content active" data-lang="zh"><li>Double Exposure / Switch / Spanish 21 等變體玩法</li><li>純遊玩，無訓練功能</li></ul>
           <ul class="feature-list other-list lang-content" data-lang="th"><li>รูปแบบเกม Double Exposure / Switch / Spanish 21</li><li>เล่นเพื่อสนุก ไม่มีฟีเจอร์ฝึกซ้อม</li></ul>
         </td>
+        <td class="center"><span class="sim-none-dash">—</span></td>
         <td><a class="link-btn" href="https://www.blackjacksimulator.net/" target="_blank">網站 ↗</a></td>
       </tr>
 
@@ -755,6 +882,7 @@
   </div>
 </div>
 
+<div style="max-width:1500px;margin:16px auto 0;padding:0 20px;"><p style="font-size:11px;color:rgba(245,241,218,0.35);" data-zh="① 商店評分為 App Store / Google Play 公開資料約略值，以各平台實際顯示為準。" data-th="① คะแนนสโตร์เป็นค่าโดยประมาณจากข้อมูลสาธารณะของ App Store / Google Play โปรดตรวจสอบจากแพลตฟอร์มจริง">① 商店評分為 App Store / Google Play 公開資料約略值，以各平台實際顯示為準。</p></div>
 <div class="page-footer">
   <p data-zh="BJ Analyzer · 競品分析報告 · 2025 · 資料來源：App Store / Google Play / Steam / 各官方網站" data-th="BJ Analyzer · รายงานวิเคราะห์คู่แข่ง · 2025 · แหล่งข้อมูล：App Store / Google Play / Steam / เว็บไซต์ทางการ">BJ Analyzer · 競品分析報告 · 2025 · 資料來源：App Store / Google Play / Steam / 各官方網站</p>
 </div>
