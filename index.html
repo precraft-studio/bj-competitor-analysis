@@ -173,6 +173,22 @@
     .sales-src  { display: inline-block; margin-top: 3px; padding: 1px 6px; border-radius: 3px;
                   font-size: 9px; font-weight: 700; font-family: var(--font-mono);
                   background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.2); color: var(--cyan); }
+
+    /* ── App Icons ── */
+    .app-name { display: flex; align-items: center; gap: 10px; }
+    .app-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      object-fit: cover; border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .app-icon-initial {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 800; color: #fff;
+      letter-spacing: -0.5px; border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4); font-family: monospace;
+    }
+    .app-name-text { flex: 1; }
   </style>
 </head>
 <body>
@@ -241,7 +257,7 @@
       <!-- 1 -->
       <tr data-platform="ios">
         <td><span style="color:var(--ink-dim)">01</span></td>
-        <td><div class="app-name">Blackjack &amp; Card Counting Pro</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/1b/d1/56/1bd1564d-a088-e524-56e7-d40e3d1cd561/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack &amp; Card Counting Pro</span></div></td>
         <td><div class="company-name">Blackjack Apprenticeship</div></td>
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag">$4.99</span></td>
@@ -281,7 +297,7 @@
       <!-- 2 -->
       <tr data-platform="ios">
         <td><span style="color:var(--ink-dim)">02</span></td>
-        <td><div class="app-name">Blackjack 21: Strategy Trainer</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/dc/52/64/dc526419-a6f0-21df-6350-2fc8655a6c32/AppIcon-0-0-1x_U007epad-0-1-85-220.jpeg/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack 21: Strategy Trainer</span></div></td>
         <td><div class="company-name">BlackJack Trainer 21 AG</div></td>
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $49.99</span></td>
@@ -321,7 +337,7 @@
       <!-- 3 -->
       <tr data-platform="ios">
         <td><span style="color:var(--ink-dim)">03</span></td>
-        <td><div class="app-name">Blackjack Hi-Lo Card Counting</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/c2/f4/d8/c2f4d869-7930-6aac-e4fc-c2d9b59d609a/AppIcon_HILO-0-0-1x_U007emarketing-0-7-0-85-220.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack Hi-Lo Card Counting</span></div></td>
         <td><div class="company-name">Double Down Software</div></td>
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag">$14.99</span></td>
@@ -361,7 +377,7 @@
       <!-- 4 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">04</span></td>
-        <td><div class="app-name">Blackjack Card Counting Pro</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/43/05/2b/43052b75-dc2b-be0e-261d-fe88265ce8b0/AppIcon_PRO-0-0-1x_U007emarketing-0-8-0-85-220.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack Card Counting Pro</span></div></td>
         <td><div class="company-name">Double Down Software</div></td>
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag">$19.99</span></td>
@@ -410,7 +426,7 @@
       <!-- 5 -->
       <tr data-platform="ios">
         <td><span style="color:var(--ink-dim)">05</span></td>
-        <td><div class="app-name">Card Counting Coach</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/9c/f6/87/9cf6875d-6a3a-de7b-4d41-e330570ec6a0/AppIcon-1x_U007ephone-0-sRGB-85-220-0.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Card Counting Coach</span></div></td>
         <td><div class="company-name">Justin Ackermann</div></td>
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $9.99</span></td>
@@ -450,7 +466,7 @@
       <!-- 6 -->
       <tr data-platform="ios">
         <td><span style="color:var(--ink-dim)">06</span></td>
-        <td><div class="app-name">Card Counter</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/bf/4c/d8/bf4cd8ac-6c29-76b9-6f0d-1c5af1cdcac5/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Card Counter</span></div></td>
         <td><div class="company-name">TMSOFT</div></td>
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag">$2.99</span></td>
@@ -490,7 +506,7 @@
       <!-- 7 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">07</span></td>
-        <td><div class="app-name">Blackjack Trainer: All in One</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/02/fd/6702fdc1-d3a9-320a-92dc-7302a67d2e43/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack Trainer: All in One</span></div></td>
         <td><div class="company-name">Blue Wind Service Co.</div></td>
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $5.99</span></td>
@@ -539,7 +555,7 @@
       <!-- 8 -->
       <tr data-platform="ios">
         <td><span style="color:var(--ink-dim)">08</span></td>
-        <td><div class="app-name">Blackjack Trainer Card Counter</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/3c/8b/b5/3c8bb54a-d925-2b4a-1c14-fb907543d106/AppIcon-0-0-1x_U007emarketing-0-6-0-85-220.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack Trainer Card Counter</span></div></td>
         <td><div class="company-name">Growth Garage LLC</div></td>
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + <span data-zh="終身" data-th="ตลอดชีพ">終身</span> $119.99</span></td>
@@ -579,7 +595,7 @@
       <!-- 9 -->
       <tr data-platform="ios">
         <td><span style="color:var(--ink-dim)">09</span></td>
-        <td><div class="app-name">Nightcard: Blackjack Trainer</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/ac/b7/c3/acb7c314-0337-e60d-bcc5-7338318edd96/AppIcon-0-0-1x_U007epad-0-0-0-1-0-sRGB-85-220.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Nightcard: Blackjack Trainer</span></div></td>
         <td><div class="company-name">Nightcard LLC</div></td>
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $4.99</span></td>
@@ -619,7 +635,7 @@
       <!-- 10 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">10</span></td>
-        <td><div class="app-name">My Blackjack Strategy</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/bd/73/f2/bd73f2a0-35e6-e15f-5522-24ec942437d4/AppIcon-0-0-1x_U007ephone-0-85-220.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">My Blackjack Strategy</span></div></td>
         <td><div class="company-name">Revolve Works LLC</div></td>
         <td><span class="platform-tag tag-ios">iOS</span></td>
         <td><span class="price-tag">$0.99</span></td>
@@ -668,7 +684,7 @@
       <!-- 11 ✅ sim -->
       <tr data-platform="ios" class="sim-yes">
         <td><span style="color:var(--ink-dim)">11</span></td>
-        <td><div class="app-name">Steve's Blackjack Trainer Pro</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/e9/47/ab/e947ab2c-3ee3-5ebc-b47e-b20f2f76ae00/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Steve's Blackjack Trainer Pro</span></div></td>
         <td><div class="company-name">Fuse Games LLC</div></td>
         <td><span class="platform-tag tag-ios">iOS</span><span class="platform-tag tag-pc">PC</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $2.99</span></td>
@@ -717,7 +733,7 @@
       <!-- 12 ✅ sim -->
       <tr data-platform="android" class="sim-yes">
         <td><span style="color:var(--ink-dim)">12</span></td>
-        <td><div class="app-name">Blackjack All-In-One Trainer</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/67/02/fd/6702fdc1-d3a9-320a-92dc-7302a67d2e43/AppIcon-1x_U007emarketing-0-8-0-85-220-0.png/200x200bb.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack All-In-One Trainer</span></div></td>
         <td><div class="company-name">Blue Wind Service Co.</div></td>
         <td><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + Pro</span></td>
@@ -766,7 +782,7 @@
       <!-- 13 -->
       <tr data-platform="android">
         <td><span style="color:var(--ink-dim)">13</span></td>
-        <td><div class="app-name">Blackjack Counter</div></td>
+        <td><div class="app-name"><div class="app-icon-initial" style="background:#4b7bec;">BC</div><span class="app-name-text">Blackjack Counter</span></div></td>
         <td><div class="company-name">VectorLogic</div></td>
         <td><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-tag"><span class="price-free" data-zh="免費" data-th="ฟรี">免費</span> + $5.99</span></td>
@@ -800,7 +816,7 @@
       <!-- 14 -->
       <tr data-platform="android">
         <td><span style="color:var(--ink-dim)">14</span></td>
-        <td><div class="app-name">Blackjack Ace</div></td>
+        <td><div class="app-name"><div class="app-icon-initial" style="background:#2ecc71;">BA</div><span class="app-name-text">Blackjack Ace</span></div></td>
         <td><div class="company-name" data-zh="獨立開發者" data-th="นักพัฒนาอิสระ">獨立開發者</div></td>
         <td><span class="platform-tag tag-android">Android</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
@@ -840,7 +856,7 @@
       <!-- 15 ✅ sim -->
       <tr data-platform="pc" class="sim-yes">
         <td><span style="color:var(--ink-dim)">15</span></td>
-        <td><div class="app-name">Casino Vérité (CVBJ/CVCX/CVData)</div></td>
+        <td><div class="app-name"><div class="app-icon-initial" style="background:#c0392b;">CV</div><span class="app-name-text">Casino Vérité (CVBJ/CVCX/CVData)</span></div></td>
         <td><div class="company-name">QFIT / Norman Wattenberger</div></td>
         <td><span class="platform-tag tag-pc">Windows</span></td>
         <td><span class="price-tag">$115–$250</span></td>
@@ -883,7 +899,7 @@
       <!-- 16 ✅ sim -->
       <tr data-platform="pc" class="sim-yes">
         <td><span style="color:var(--ink-dim)">16</span></td>
-        <td><div class="app-name">DeepNet Blackjack Suite</div></td>
+        <td><div class="app-name"><div class="app-icon-initial" style="background:#8e44ad;">DN</div><span class="app-name-text">DeepNet Blackjack Suite</span></div></td>
         <td><div class="company-name">DeepNet Technologies</div></td>
         <td><span class="platform-tag tag-pc">Windows</span></td>
         <td><span class="price-tag">$40–$65</span></td>
@@ -926,7 +942,7 @@
       <!-- 17 -->
       <tr data-platform="pc">
         <td><span style="color:var(--ink-dim)">17</span></td>
-        <td><div class="app-name">Blackjack Trainer</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://cdn.cloudflare.steamstatic.com/steam/apps/3974240/capsule_sm_120.jpg" alt="" loading="lazy"><span class="app-name-text">Blackjack Trainer</span></div></td>
         <td><div class="company-name">Avantage Games</div></td>
         <td><span class="platform-tag tag-pc">Steam</span></td>
         <td><span class="price-tag">$5</span></td>
@@ -965,7 +981,7 @@
       <!-- 18 ✅ sim -->
       <tr data-platform="pc" class="sim-yes">
         <td><span style="color:var(--ink-dim)">18</span></td>
-        <td><div class="app-name">Jester Street: Card Counting Trainer</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://cdn.cloudflare.steamstatic.com/steam/apps/1828070/capsule_sm_120.jpg" alt="" loading="lazy"><span class="app-name-text">Jester Street: Card Counting Trainer</span></div></td>
         <td><div class="company-name">Geek Tweak Games</div></td>
         <td><span class="platform-tag tag-pc">Steam</span></td>
         <td><span class="price-tag">$6</span></td>
@@ -1013,7 +1029,7 @@
       <!-- 19 -->
       <tr data-platform="web">
         <td><span style="color:var(--ink-dim)">19</span></td>
-        <td><div class="app-name">blackjack.training</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://blackjack.training/favicon.ico" alt="" loading="lazy"><span class="app-name-text">blackjack.training</span></div></td>
         <td><div class="company-name" data-zh="不明" data-th="ไม่ทราบ">不明</div></td>
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
@@ -1047,7 +1063,7 @@
       <!-- 20 -->
       <tr data-platform="web">
         <td><span style="color:var(--ink-dim)">20</span></td>
-        <td><div class="app-name">basicstrategy.app</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://basicstrategy.app/favicon.ico" alt="" loading="lazy"><span class="app-name-text">basicstrategy.app</span></div></td>
         <td><div class="company-name" data-zh="不明" data-th="ไม่ทราบ">不明</div></td>
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
@@ -1081,7 +1097,7 @@
       <!-- 21 -->
       <tr data-platform="web">
         <td><span style="color:var(--ink-dim)">21</span></td>
-        <td><div class="app-name">Wizard of Odds Trainer</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://www.wizardofodds.com/favicon.ico" alt="" loading="lazy"><span class="app-name-text">Wizard of Odds Trainer</span></div></td>
         <td><div class="company-name">Michael Shackleford</div></td>
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
@@ -1115,7 +1131,7 @@
       <!-- 22 -->
       <tr data-platform="web">
         <td><span style="color:var(--ink-dim)">22</span></td>
-        <td><div class="app-name">BlackjackSimulator.net</div></td>
+        <td><div class="app-name"><img class="app-icon" src="https://www.blackjacksimulator.net/favicon.ico" alt="" loading="lazy"><span class="app-name-text">BlackjackSimulator.net</span></div></td>
         <td><div class="company-name" data-zh="不明" data-th="ไม่ทราบ">不明</div></td>
         <td><span class="platform-tag tag-web">Web</span></td>
         <td><span class="price-free" style="font-weight:700" data-zh="免費" data-th="ฟรี">免費</span></td>
